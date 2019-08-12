@@ -1,7 +1,7 @@
 from odoo import models, fields
 
-class Course(models.Model):
 
+class Course(models.Model):
     _name = 'sis.course'
     _description = 'course model'
 
@@ -9,6 +9,6 @@ class Course(models.Model):
     id = fields.Integer(string='ID', required=True)
     credits = fields.Integer(string='Credits', required=True)
     level = fields.Integer(string='Level', required=True)
-    # students =
+    # students = fields.
 
     department = fields.Many2one('sis.department')

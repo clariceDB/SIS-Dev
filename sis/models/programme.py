@@ -1,7 +1,7 @@
 from odoo import models, fields
 
-class Programme(models.Model):
 
+class Programme(models.Model):
     _name = 'sis.programme'
     _description = 'programme model'
 
@@ -18,8 +18,12 @@ class Programme(models.Model):
         ('BEd', 'Bachelors in Education'),
     ])
 
-    courses = fields.Many2many('sis.course')
+    # courses = fields.Many2many('sis.course')
 
-    Status = fields.Boolean(string='Status', required=True)  # Postgrad or Undergrad
+    level = fields.Selection([
+        ('Test', 'Undergraduate Programme'),
+        ('Test2', 'Postgraduate Programme'),
+    ])
 
-    #students = fields.Many2many('sis.students')
+    # courses =
+    # students = fields.Many2many('sis.students')

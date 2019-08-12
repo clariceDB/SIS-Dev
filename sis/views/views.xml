@@ -17,15 +17,15 @@
     />
 
     <!--Programme-->
-    <act_window id="action_programme"
-      name="Programme"
+    <act_window id="action_add_programme"
+      name="Programmes"
       res_model="sis.programme"
       view_mode="tree,form"
 	/>
 
-    <menuitem id="menu_programme"
-              name="Programme"
-              action="action_programme"
+    <menuitem id="menu_view_form_add_programme"
+              name="Programmes"
+              action="action_add_programme"
               parent="sis_menu"
               />
 
@@ -42,6 +42,18 @@
               parent="sis_menu"
               />
 
+    <!--Course-->
+    <act_window id="action_add_course"
+      name="Courses"
+      res_model="sis.course"
+      view_mode="tree,form"
+	/>
+
+    <menuitem id="menu_add_course"
+              name="Courses"
+              action="action_add_course"
+              parent="sis_menu"
+              />
 
 </odoo>
 
