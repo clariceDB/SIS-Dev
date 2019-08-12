@@ -10,4 +10,4 @@ class Lecturer(models.Model):
     id = fields.Integer(string='ID', required=True)
     password = fields.Char(string='Password', required=True)
     level = fields.Char(string='Level', required=True)
-    department = fields.Char(string='Department', required=True)
+    department = fields.Many2one('sis.department')

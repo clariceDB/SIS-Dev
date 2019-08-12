@@ -9,4 +9,4 @@ class AcademicAdmin(models.Model):
     surname = fields.Char(string='Surname', required=True)
     id = fields.Integer(string='ID', required=True)
     password = fields.Char(string='Password', required=True)
-    department = fields.Char(string='Department', required=True)
+    department = fields.Many2one('sis.department')

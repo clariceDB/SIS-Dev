@@ -18,8 +18,8 @@ class Programme(models.Model):
         ('BEd', 'Bachelors in Education'),
     ])
 
-    #courses = fields.Many2many(comodal_name='sis.course', string='course')
+    #courses = fields.Many2many('sis.course')
 
     Status = fields.Boolean(string='Status', required=True)  # Postgrad or Undergrad
 
-    #students = fields.Many2many(comodel_name='sis.students', string='students')
+    #students = fields.Many2many('sis.students')

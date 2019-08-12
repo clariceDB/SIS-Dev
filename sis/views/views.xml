@@ -29,6 +29,19 @@
               parent="sis_menu"
               />
 
+    <!--Lecturer-->
+    <act_window id="action_lecturer"
+      name="Lecturer"
+      res_model="sis.lecturer"
+      view_mode="tree,form"
+	/>
+
+    <menuitem id="menu_lecturer"
+              name="Lecturers"
+              action="action_lecturer"
+              parent="sis_menu"
+              />
+
 
 </odoo>
 

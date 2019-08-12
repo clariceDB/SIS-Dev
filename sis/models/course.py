@@ -11,4 +11,4 @@ class Course(models.Model):
     level = fields.Integer(string='Level', required=True)
     # students =
 
-    department = fields.Char(string='Department', required=True)
+    department = fields.Many2one('sis.department')
