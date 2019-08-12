@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="add_course_action" model="">
+            <sheet>
+                <h1>
+                      <field name="name" placeholder="Add Course"/>
+                </h1>
+                <field name="name">Name</field>
+                <field name=""></field>
+                <field name=""></field>
+                <field name=""></field>
+            </sheet>
+        </record>
+    </data>
+</odoo>
