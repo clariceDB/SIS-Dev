@@ -15,7 +15,7 @@
               parent="sis_menu"
               action="action_student"
     />
-    
+
     <!--Programme-->
     <act_window id="action_programme"
       name="Programme"
@@ -26,8 +26,8 @@
     <menuitem id="menu_programme"
               name="Programme"
               action="action_programme"
+              parent="sis_menu"
               />
-              <!--parent="sis_menu"-->
 
 
 </odoo>

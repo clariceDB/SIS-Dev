@@ -26,13 +26,14 @@ class Student(models.Model):
     id = fields.Integer(string='ID', required=True)
     password = fields.Char(string='Password', required=True)
 
-    programme = fields.Selection([
-        ('CS', 'Computer Science'),
-        ('ISM', 'Information Management Science'),
-        ('AM', 'Applied Maths'),
-        ('BM', 'Business Management')
-    ])  # this is temp. Eventually link to programme model
-    # programme = fields.Many2one(comodal_name='programme', string='programme'
+    # programme = fields.Selection([
+    #     ('CS', 'Computer Science'),
+    #     ('ISM', 'Information Management Science'),
+    #     ('AM', 'Applied Maths'),
+    #     ('BM', 'Business Management')
+    # ])  # this is temp. Eventually link to programme model
+
+    programme = fields.Many2one(comodal_name='programme', string='programme')
 
     current_year = fields.Integer(string='Current Year', required=True)
     transcript = fields.Binary(string='Transcript')
