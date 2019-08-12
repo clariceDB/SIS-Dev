@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<odoo>
+  <record id="view_form_add_programme" model="ir.ui.view">
+    <field name="name">Programmes</field>
+    <field name="model">sis.programme</field>
+    <field name="arch" type="xml">
+      <form>
+        <group>
+            <field name="name" />
+            <field name="id" />
+            <field name="credits" />
+            <field name="level" />
+            <field name="designation" />
+<!--            <field name="courses" />-->
+<!--            <field name="students" />-->
+        </group>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_tree_add_programme" model="ir.ui.view">
+    <field name="name">Programme List View</field>
+    <field name="model">sis.programme</field>
+    <field name="arch" type="xml">
+      <tree>
+          <field name="name" />
+          <field name="credits" />
+          <field name="designation" />
+      </tree>
+    </field>
+  </record>
+</odoo>

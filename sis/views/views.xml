@@ -17,15 +17,15 @@
     />
 
     <!--Programme-->
-    <act_window id="action_programme"
-      name="Programme"
+    <act_window id="action_add_programme"
+      name="Programmes"
       res_model="sis.programme"
       view_mode="tree,form"
 	/>
 
-    <menuitem id="menu_programme"
-              name="Programme"
-              action="action_programme"
+    <menuitem id="menu_view_form_add_programme"
+              name="Programmes"
+              action="action_add_programme"
               parent="sis_menu"
               />
 
@@ -42,11 +42,26 @@
               parent="sis_menu"
               />
 
+<<<<<<< HEAD
     <!--<data>-->
         <!--<header>-->
             <!--<button name="make_student" string="Some string here" type="object"/>-->
         <!--</header>-->
     <!--</data>-->
+=======
+    <!--Course-->
+    <act_window id="action_add_course"
+      name="Courses"
+      res_model="sis.course"
+      view_mode="tree,form"
+	/>
+
+    <menuitem id="menu_add_course"
+              name="Courses"
+              action="action_add_course"
+              parent="sis_menu"
+              />
+>>>>>>> 3bd5488ffecd9d5f3a6efd32bc3d307b8b0e39dc
 
 </odoo>
 
