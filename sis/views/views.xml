@@ -1,17 +1,18 @@
 <?xml version="1.0"?>
 <odoo>
     <menuitem id="sis_menu"
-              name="Student IS" />
+              name="Student Information System" />
 
     <act_window id="action_student"
       name="Student"
       res_model="sis.student"
-      view_mode="form"
+      view_mode="tree,form"
 	/>
 
     <menuitem id="menu_student"
-              name="Test"
-	      action="action_student"
+              name="Student"
+              parent="sis_menu"
+              action="action_student"
     />
 
 
