@@ -23,7 +23,7 @@ class Student(models.Model):
     surname = fields.Char(string='Surname', required=True)
     dob = fields.Date('Date of Birth')
 
-    #age = fields.Date(compute='calculate_age')
+    # age = fields.Date(compute='calculate_age')
 
     id = fields.Integer(string='ID', required=True)
     password = fields.Char(string='Password', required=True)
