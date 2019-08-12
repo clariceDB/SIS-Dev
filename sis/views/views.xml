@@ -3,6 +3,7 @@
     <menuitem id="sis_menu"
               name="Student Information System" />
 
+    <!--Student-->
     <act_window id="action_student"
       name="Student"
       res_model="sis.student"
@@ -15,6 +16,18 @@
               action="action_student"
     />
 
+    <!--Programme-->
+    <act_window id="action_programme"
+      name="Programme"
+      res_model="sis.programme"
+      view_mode="tree,form"
+	/>
+
+    <menuitem id="menu_programme"
+              name="Programme"
+              parent="sis_menu"
+              action="action_programme"
+    />
 
 </odoo>
 
