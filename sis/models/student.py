@@ -1,4 +1,6 @@
-from odoo import models, fields
+from datetime import datetime
+
+from odoo import models, fields, api
 
 
 class Student(models.Model):
@@ -7,15 +9,15 @@ class Student(models.Model):
     _description = 'student model'
 
     @api.depends('dob')
-        def calculate_age(self):
-            """ Description:- This method calculates the age on the basis of the
-            Birth Date entered in the 'dob' field. """
-            for data in self:
-                if data.dob:
-                    current_year = datetime.datetime.now().year
-                    birth_year = datetime.datetime.strptime(data.dob,"%Y-%m-%d").year
-                    age = current_year - birth_year
-                    data.age = age
+    def calculate_age(self):
+        """ Description:- This method calculates the age on the basis of the
+        Birth Date entered in the 'dob' field. """
+        for data in self:
+            if data.dob:
+                current_year = datetime.datetime.now().year
+                birth_year = datetime.datetime.strptime(data.dob,"%Y-%m-%d").year
+                age = current_year - birth_year
+                data.age = age
 
     name = fields.Char(string='Name', required=True)
     surname = fields.Char(string='Surname', required=True)
