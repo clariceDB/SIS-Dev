@@ -42,6 +42,11 @@
               parent="sis_menu"
               />
 
+    <!--<data>-->
+        <!--<header>-->
+            <!--<button name="make_student" string="Some string here" type="object"/>-->
+        <!--</header>-->
+    <!--</data>-->
 
 </odoo>
 

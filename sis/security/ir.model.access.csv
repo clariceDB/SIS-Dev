@@ -1,6 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_sis_student,access_sis_student,model_sis_student,base.group_user,1,1,1,0
-access_sis_programme,access_sis_programme,model_sis_programme,base.group_user,1,1,1,0
-access_sis_course,access_sis_course,model_sis_course,base.group_user,1,1,1,0
-access_sis_lecturer,access_sis_lecturer,model_sis_lecturer,base.group_user,1,1,1,0
+access_sis_student,Student Student Access,model_sis_student,student_group_user,1,1,1,0
+access_sis_programme,Programme SysAdmin Access,model_sis_programme,system_admin,1,1,1,0
+access_sis_course,Course Student Access,model_sis_course,student_group_user,1,1,1,0
+access_sis_lecturer,Lecturer SysAdmin Access,model_sis_lecturer,system_admin,1,1,1,0
 
