@@ -10,4 +10,5 @@ class Course(models.Model):
     credits = fields.Integer(string='Credits', required=True)
     level = fields.Integer(string='Level', required=True)
     # students =
+
     department = fields.Char(string='Department', required=True)
