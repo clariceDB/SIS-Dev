@@ -6,10 +6,10 @@
                 <h1>
                       <field name="name" placeholder="Add Course"/>
                 </h1>
-                <field name="name">Name</field>
-                <field name=""></field>
-                <field name=""></field>
-                <field name=""></field>
+                <field name="name"></field>
+                <field name="number_of_credit"></field>
+                <field name="year_level"></field>
+                <field Selector = "department_of"></field>
             </sheet>
         </record>
     </data>
