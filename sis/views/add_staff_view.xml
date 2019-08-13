@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<odoo>
+  <record id="view_form_staff" model="ir.ui.view">
+    <field name="name">Staff Member Form View</field>
+    <field name="model">sis.lecturer</field>
+    <field name="arch" type="xml">
+      <form>
+        <group>
+          <field name="name" />
+          <field name="surname" />
+          <field name="email" />
+          <field name="id" />
+          <field name="department" />
+        </group>
+
+        <!-- mail mixin fields -->
+        <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="activity_ids" widget="mail_activity"/>
+            <field name="message_ids" widget="mail_thread"/>
+        </div>
+
+      </form>
+    </field>
+  </record>
+
+  <record id="view_tree_staff" model="ir.ui.view">
+    <field name="name">Satff Member List View</field>
+    <field name="model">sis.lecturer</field>
+    <field name="arch" type="xml">
+      <tree>
+          <field name="name" />
+          <field name="surname" />
+          <field name="email" />
+      </tree>
+    </field>
+  </record>
+</odoo>

@@ -11,3 +11,11 @@ class Lecturer(models.Model):
     password = fields.Char(string='Password', required=True)
     level = fields.Char(string='Level', required=True)
     department = fields.Many2one('sis.department')
+
+    partner_id = fields.Many2one(
+        'res.partner',
+        delegate=True,
+        ondelete='cascade',
+        required=True)
+
+
