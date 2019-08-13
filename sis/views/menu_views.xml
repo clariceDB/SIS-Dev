@@ -66,6 +66,19 @@
               action="action_add_marks"
               parent="sis_menu"
               />
+
+    <!-- Applications-->
+    <act_window id="action_view_applications"
+      name="Applications"
+      res_model="sis.application"
+      view_mode="tree"
+	/>
+
+    <menuitem id="menu_applications"
+              name="View Applications"
+              action="action_view_applications"
+              parent="sis_menu"
+              />
 </odoo>
 
 

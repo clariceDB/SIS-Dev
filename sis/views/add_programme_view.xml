@@ -7,7 +7,7 @@
       <form>
         <group>
             <field name="name" />
-            <field name="id" />
+            <field name="code" />
             <field name="credits" />
             <field name="level" />
             <field name="designation" />

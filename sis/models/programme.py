@@ -6,7 +6,10 @@ class Programme(models.Model):
     _description = 'programme model'
 
     name = fields.Char(string='Name', required=True)
-    id = fields.Integer(string='ID', required=True)
+    # id = fields.Integer(string='ID', required=True)
+
+    code = fields.Char(string='Code', required=True)
+
     credits = fields.Integer(string='Credits', required=True)
 
     designation = fields.Selection([  # Needs to handle postgrad as well
@@ -25,5 +28,4 @@ class Programme(models.Model):
         ('Test2', 'Postgraduate Programme'),
     ])
 
-    # courses =
     # students = fields.Many2many('sis.students')
