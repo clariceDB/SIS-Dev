@@ -27,7 +27,7 @@
         'security/sis_security.xml',
         'security/ir.model.access.csv',
         'views/student_view.xml',
-        'views/views.xml',
+        'views/menu_views.xml',
         'views/templates.xml',
         'views/add_course_view.xml',
         'views/add_programme_view.xml',
