@@ -54,16 +54,43 @@
               action="action_add_course"
               parent="sis_menu"
               />
+
     <!--Marks-->
     <act_window id="action_add_marks"
       name="Marks"
       res_model="sis.marks"
+      view_mode="tree"
+	/>
+
+    <menuitem id="menu_view_tree_add_lecturer_marks"
+              name="View Marks"
+              action="action_add_marks"
+              parent="sis_menu"
+              />
+
+    <!--SysadminTest-->
+    <act_window id="action_add_sysadmin"
+      name="SysAdmin"
+      res_model="sis.sysadmin"
       view_mode="tree,form"
 	/>
 
-    <menuitem id="menu_add_marks"
-              name="Marks Upload"
-              action="action_add_marks"
+    <menuitem id="menu_add_sysadmin"
+              name="SysAdmin"
+              action="action_add_sysadmin"
+              parent="sis_menu"
+              />
+
+    <!--Rollover-->
+    <act_window id="action_rollover"
+                name="Rollover"
+                res_model="sis.sysadmin"
+                view_mode="tree,form"
+	/>
+
+    <menuitem id="menu_rollover"
+              name="Rollover"
+              action="action_rollover"
               parent="sis_menu"
               />
 </odoo>

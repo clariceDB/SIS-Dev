@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<odoo>
+  <record id="view_form_rollover" model="ir.ui.view">
+    <field name="name">Rollover</field>
+    <field name="model">sis.sysadmin</field>
+    <field name="arch" type="xml">
+      <form>
+        <group>
+            <header>
+                <button name="rollover_year" string="Rollover" type="object"/>
+            </header>
+            <field name="current_year" />
+            <field name="name" />
+            <field name="surname" />
+        </group>
+      </form>
+    </field>
+  </record>
+
+  <!--<record id="view_tree_rollover" model="ir.ui.view">-->
+    <!--<field name="name">Programme List View</field>-->
+    <!--<field name="model">sis.sysadmin</field>-->
+    <!--<field name="arch" type="xml">-->
+      <!--<tree>-->
+          <!--<field name="name" />-->
+          <!--<field name="surname" />-->
+          <!--<field name="current_year" />-->
+      <!--</tree>-->
+    <!--</field>-->
+  <!--</record>-->
+</odoo>
