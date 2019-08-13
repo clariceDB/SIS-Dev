@@ -1,6 +1,5 @@
-from datetime import datetime
-
 from odoo import models, fields, api
+import random
 
 
 class Application(models.Model):
@@ -27,3 +26,12 @@ class Application(models.Model):
         ('postgrad', 'Postgraduate'),
     ])
     prev_school = fields.Char(string='School')
+
+
+    def _make_unique(self):
+        print('##########################')
+        r = random.randint(1, 101)
+        unique = self.firstname+self.surname+str(r)
+        print(unique)
+        return unique
+

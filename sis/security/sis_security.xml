@@ -6,11 +6,20 @@
 
   <!-- Student -->
   <record id="student_group" model="res.groups">
-    <field name="name">Student</field>
+    <field name="name">Student_</field>
     <field name="category_id"
            ref="module_sis_category"/>
     <field name="implied_ids"
            eval="[(4, ref('base.group_user'))]"/>
+  </record>
+
+    <!--Lecturer-->
+    <record id="lecturer_group" model="res.groups">
+    <field name="name">Lecturer_</field>
+    <field name="category_id"
+           ref="module_sis_category"/>
+    <field name="implied_ids"
+           eval="[(4, ref('student_group'))]"/>
   </record>
 
   <!-- System Admin -->
@@ -26,18 +35,9 @@
                   (4, ref('base.user_admin'))]"/>
   </record>
 
-  <!--Lecturer-->
-    <record id="lecturer_group" model="res.groups">
-    <field name="name">Lecturer</field>
-    <field name="category_id"
-           ref="module_sis_category"/>
-    <field name="implied_ids"
-           eval="[(4, ref('student_group'))]"/>
-  </record>
-
     <!--Academic Admin-->
     <record id="academic_admin_group" model="res.groups">
-    <field name="name">Academic Admin</field>
+  <field name="name">Academic Admin_</field>
     <field name="category_id"
            ref="module_sis_category"/>
     <field name="implied_ids"

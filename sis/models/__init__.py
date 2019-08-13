@@ -6,4 +6,5 @@ from . import course
 from . import academic_admin
 from . import lecturer
 from . import department
+from . import application
 
