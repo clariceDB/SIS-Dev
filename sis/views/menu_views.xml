@@ -41,8 +41,8 @@
               action="action_lecturer"
               parent="sis_menu"
               />
-
     <!--Course-->
+
     <act_window id="action_add_course"
       name="Courses"
       res_model="sis.course"
