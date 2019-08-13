@@ -3,9 +3,9 @@ from datetime import datetime
 from odoo import models, fields, api
 
 
-class Student(models.Model):
-    _name = 'sis.student'
-    _description = 'student model'
+class Application(models.Model):
+    _name = 'sis.application'
+    _description = 'application model'
 
     name = fields.Char(string='Name', required=True)
     surname = fields.Char(string='Surname', required=True)
