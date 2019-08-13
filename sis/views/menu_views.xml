@@ -54,6 +54,18 @@
               action="action_add_course"
               parent="sis_menu"
               />
+    <!--Marks-->
+    <act_window id="action_add_marks"
+      name="Marks"
+      res_model="sis.marks"
+      view_mode="tree,form"
+	/>
+
+    <menuitem id="menu_add_marks"
+              name="Marks Upload"
+              action="action_add_marks"
+              parent="sis_menu"
+              />
 </odoo>
 
 
