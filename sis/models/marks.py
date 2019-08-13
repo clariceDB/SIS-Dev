@@ -8,3 +8,8 @@ class Marks(models.Model):
     student = fields.Many2one('sis.student')
     result = fields.Integer(string='Result')
     course = fields.Many2one('sis.course')
+
+    #res = Super.(Class_name,Self).create(vals)
+    #res is your new record id
+
+
