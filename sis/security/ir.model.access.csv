@@ -11,3 +11,7 @@ access_course_student,Course Student Access,model_sis_course,student_group,1,0,0
 access_course_sysadmin,Course SysAdmin Access,model_sis_course,system_admin,1,1,1,1
 access_course_lecturer,Course Lecturer Access,model_sis_course,lecturer_group,1,0,0,0
 access_course_acaadmin,Course Admin Access,model_sis_course,academic_admin_group,1,1,1,0
+access_application_student,Application Student Access,model_sis_application,student_group,1,1,1,0
+access_application_sysadmin,Application SysAdmin Access,model_sis_application,system_admin,1,1,1,1
+access_application_lecturer,Application Lecturer Access,model_sis_application,lecturer_group,0,0,0,0
+access_application_acaadmin,Application Admin Access,model_sis_application,academic_admin_group,1,0,0,0
