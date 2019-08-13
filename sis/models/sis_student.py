@@ -61,10 +61,9 @@ class Student(models.Model):
                 age = current_year - birth_year
                 data.age = age
 
-
     @api.model
     def create(self, vals):
-
+        # Create the user
         res = super(Student, self).create(vals)
         self.env['res.users'].create({
             'name':vals['name'],
@@ -72,7 +71,16 @@ class Student(models.Model):
             'login':vals['email'],
             'new_password':vals['password']
         })
+        # Assign the group
+        self.set_student_group()
+        # group = self.env.ref('student_group')
+        # group.write({'users': [(4, self._uid)]})
         return res
+
+    @api.multi
+    def set_student_group(self):
+        commission_group = self.env.ref('sis.student_group')
+        commission_group.write({'users': [(4, self._uid)]})
 
     # @api.model
     # def create(self, vals):
