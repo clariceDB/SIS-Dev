@@ -5,7 +5,7 @@
   </record>
 
   <!-- Student -->
-  <record id="student_group_user" model="res.groups">
+  <record id="student_group" model="res.groups">
     <field name="name">Student</field>
     <field name="category_id"
            ref="module_sis_category"/>
@@ -19,20 +19,39 @@
     <field name="category_id"
            ref="module_sis_category"/>
     <field name="implied_ids"
-           eval="[(4, ref('student_group_user'))]"/>
+           eval=" [(4, ref('student_group'))],
+                  [(4, ref('lecturer_group'))]"/>
     <field name="users"
            eval="[(4, ref('base.user_root')),
                   (4, ref('base.user_admin'))]"/>
   </record>
 
+  <!--Lecturer-->
+    <record id="lecturer_group" model="res.groups">
+    <field name="name">Lecturer</field>
+    <field name="category_id"
+           ref="module_sis_category"/>
+    <field name="implied_ids"
+           eval="[(4, ref('student_group'))]"/>
+  </record>
+
+    <!--Academic Admin-->
+    <record id="academic_admin_group" model="res.groups">
+    <field name="name">Academic Admin</field>
+    <field name="category_id"
+           ref="module_sis_category"/>
+    <field name="implied_ids"
+           eval="[(4, ref('student_group'))]"/>
+  </record>
+
     <data noupdate="1">
     <record id="sis_user_rule" model="ir.rule">
       <field name="name">SIS User accesses</field>
-      <field name="model_id" ref="model_sis_student"/>
-      <field name="domain_force">
-          [('active','=',True)]
-      </field>
-      <field name="groups" eval="[(4,ref('student_group_user'))]"/>
+      <field name="model_id" ref="model_sis_programme"/>
+      <!--<field name="domain_force">-->
+          <!--[('active','=',True)]-->
+      <!--</field>-->
+      <field name="groups" eval="[(4,ref('student_group'))]"/>
     </record>
   </data>
 
