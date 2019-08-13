@@ -41,8 +41,8 @@
               action="action_lecturer"
               parent="sis_menu"
               />
+    <!--Course-->
 
-    <!--Add Course-->
     <act_window id="action_add_course"
       name="Courses"
       res_model="sis.course"
@@ -54,7 +54,6 @@
               action="action_add_course"
               parent="sis_menu"
               />
-
 </odoo>
 
 

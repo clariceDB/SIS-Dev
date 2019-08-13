@@ -31,6 +31,7 @@
         'views/templates.xml',
         'views/add_course_view.xml',
         'views/add_programme_view.xml',
+        'views/add_staff_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
