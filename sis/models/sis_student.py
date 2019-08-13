@@ -9,14 +9,14 @@ class Student(models.Model):
 
     def _make_unique(self):
         r = random.randint(1, 101)
-        unique = self.firstname+self.surname+str(r)
+        unique = self.name+self.surname+str(r)
         print(unique)
         return unique
 
     _name = 'sis.student'
     _description = 'student model'
 
-    firstname = fields.Char(string='Name', required=True)
+    name = fields.Char(string='Name', required=True)
     surname = fields.Char(string='Surname', required=True)
     dob = fields.Date('Date of Birth')
     state = fields.Boolean(string='Accepted', default=False)
@@ -67,7 +67,7 @@ class Student(models.Model):
 
         res = super(Student, self).create(vals)
         self.env['res.users'].create({
-            'name':vals['firstname'],
+            'name':vals['name'],
             'email':vals['email'],
             'login':vals['email'],
             'new_password':vals['password']
