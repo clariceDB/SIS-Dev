@@ -18,7 +18,7 @@ class Programme(models.Model):
         ('BEd', 'Bachelors in Education'),
     ])
 
-    # courses = fields.Many2many('sis.course')
+    #courses = fields.Many2many('sis.course')
 
     level = fields.Selection([
         ('Test', 'Undergraduate Programme'),
