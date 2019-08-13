@@ -16,7 +16,8 @@ class Student(models.Model):
     _name = 'sis.student'
     _description = 'student model'
 
-    name = fields.Char(string='Name', required=True)
+    name = fields.Char(string='Name',
+                       required=True)
     surname = fields.Char(string='Surname', required=True)
     dob = fields.Date('Date of Birth')
     state = fields.Boolean(string='Accepted', default=False)
@@ -71,16 +72,30 @@ class Student(models.Model):
             'login':vals['email'],
             'new_password':vals['password']
         })
+
         # Assign the group
-        self.set_student_group()
+        # self.assign_perms(res)
         # group = self.env.ref('student_group')
         # group.write({'users': [(4, self._uid)]})
         return res
 
-    @api.multi
-    def set_student_group(self):
-        commission_group = self.env.ref('sis.student_group')
-        commission_group.write({'users': [(4, self._uid)]})
+    # @api.multi
+    # def set_student_group(self):
+    #     commission_group = self.env.ref('sis.student_group')
+    #     commission_group.write({'users': [(4, self._uid)]})
+    #
+    # @api.multi
+    # def assign_perms(self, res):
+
+
+
+        # emp_grp = self.env.ref('base.group_user')
+        # done_student = self.env.ref('sis.student_group')
+        # group_list = [done_student.id, emp_grp.id]
+        # res.user_id.write({'groups_id': [(4, group_list)]})
+
+        # group = self.env['res.groups'].search([('id', '=', self.env.ref('sis.student_group').id)])
+        # group.write({'users': [(4, self._uid)]})
 
     # @api.model
     # def create(self, vals):

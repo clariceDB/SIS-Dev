@@ -1,5 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_student_student,Student Student Access,model_sis_student,student_group,1,1,0,0
+access_student_student,Student Student Access,model_sis_student,student_group,1,1,1,1
 access_student_sysadmin,Student SysAdmin Access,model_sis_student,system_admin,1,1,1,1
 access_student_lecturer,Student Lecturer Access,model_sis_student,lecturer_group,1,0,0,0
 access_student_acaadmin,Student Admin Access,model_sis_student,academic_admin_group,1,0,0,0
@@ -7,11 +7,11 @@ access_programme_student,Programme Student Access,model_sis_programme,student_gr
 access_programme_sysadmin,Programme SysAdmin Access,model_sis_programme,system_admin,1,1,1,1
 access_programme_lecturer,Programme Lecturer Access,model_sis_programme,lecturer_group,1,0,0,0
 access_programme_acaadmin,Programme Admin Access,model_sis_programme,academic_admin_group,1,1,1,0
-access_course_student,Course Student Access,model_sis_course,student_group,1,0,0,0
+access_course_student,Course Student Access,model_sis_course,student_group,1,1,1,1
 access_course_sysadmin,Course SysAdmin Access,model_sis_course,system_admin,1,1,1,1
 access_course_lecturer,Course Lecturer Access,model_sis_course,lecturer_group,1,0,0,0
 access_course_acaadmin,Course Admin Access,model_sis_course,academic_admin_group,1,1,1,0
-access_application_student,Application Student Access,model_sis_application,student_group,1,1,1,0
+access_application_student,Application Student Access,model_sis_application,student_group,1,1,1,1
 access_application_sysadmin,Application SysAdmin Access,model_sis_application,system_admin,1,1,1,1
 access_application_lecturer,Application Lecturer Access,model_sis_application,lecturer_group,0,0,0,0
-access_application_acaadmin,Application Admin Access,model_sis_application,academic_admin_group,1,0,0,0
+access_application_acaadmin,Application Admin Access,model_sis_application,academic_admin_group,1,1,0,0
