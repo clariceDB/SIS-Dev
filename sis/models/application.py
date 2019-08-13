@@ -27,7 +27,6 @@ class Application(models.Model):
     ])
     prev_school = fields.Char(string='School')
 
-
     def _make_unique(self):
         print('##########################')
         r = random.randint(1, 101)
