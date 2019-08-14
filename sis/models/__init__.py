@@ -8,4 +8,4 @@ from . import sis_lecturer
 from . import department
 from . import application
 from . import marks
-from . import sysadmin
+from . import sis_sysadmin

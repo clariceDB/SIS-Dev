@@ -25,7 +25,7 @@ class Student(models.Model):
 
     # age = fields.Date(compute='calculate_age')
 
-    id = fields.Integer(string='ID', required=True)
+    id = fields.Integer(string='ID')
     password = fields.Char(string='Password', required=True)
 
     # programme = fields.Selection([
@@ -37,7 +37,7 @@ class Student(models.Model):
 
     programme = fields.Many2one('sis.programme')
 
-    current_year = fields.Integer(string='Current Year', required=True, default=1)
+    current_year = fields.Integer(string='Current Year', required=True, default=1, readonly=True)
     transcript = fields.Binary(string='Transcript')
 
     address = fields.Char(string='Address')

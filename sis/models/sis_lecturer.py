@@ -1,5 +1,7 @@
 from odoo import models, fields, api
 
+from . import globals
+
 
 class Lecturer(models.Model):
 
@@ -13,6 +15,8 @@ class Lecturer(models.Model):
     password = fields.Char('Password', required=True)
     level = fields.Char(string='Level')
     department = fields.Many2one('sis.department')
+
+    test = fields.Char(default=globals.Globals.get_year('a'), string='year', readonly=True)
 
 
     @api.model

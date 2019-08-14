@@ -13,6 +13,7 @@
           <field name="id" />
           <field name="department" />
           <field name="level"/>
+          <field name="test"/>
         </group>
       </form>
     </field>
