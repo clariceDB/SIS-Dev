@@ -39,6 +39,9 @@ class Student(models.Model):
     programme = fields.Many2one('sis.programme')
     programme_name = fields.Char(string='ProgrammeName')
 
+    # row = fields.Char(related='programme.row')
+    # programme_id = fields.Many2one('sis.programme', related='programme_id.row')
+
     current_year = fields.Integer(string='Current Year', required=True, default=1, readonly=True)
     transcript = fields.Binary(string='Transcript')
 
@@ -67,7 +70,7 @@ class Student(models.Model):
     @api.model
     def create(self, vals):
 
-        print("PROGRAM NAME: ", self.programme.read())
+
 
         # Create the user
         res = super(Student, self).create(vals)
