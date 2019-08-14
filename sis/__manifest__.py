@@ -31,7 +31,7 @@
         'views/templates.xml',
         'views/add_course_view.xml',
         'views/add_programme_view.xml',
-        'views/add_staff_view.xml',
+        'views/add_lec_view.xml',
         'views/applications_view.xml',
         'views/add_lecturer_marks_view.xml',
         'views/rollover_view.xml',
