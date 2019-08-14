@@ -45,7 +45,30 @@ class Application(models.Model):
         ('postgrad', 'Postgraduate'),
     ])
     prev_school = fields.Char(string='School')
+
+
     status = fields.Boolean(default=False)
+
+    STATES = [
+        ('pending', 'Pending'),
+        ('accepted', 'Accepted'),
+        ('declined', 'Declined'),
+    ]
+
+    status = fields.Selection(STATES, default=STATES[0][0])
+
+
+    @api.multi
+    def button_accept(self):
+        for rec in self:
+            rec.write({'status': 'accepted'})
+
+
+    @api.multi
+    def button_declined(self):
+        for rec in self:
+            rec.write({'status': 'declined'})
+
 
     def _make_unique(self):
         print('##########################')

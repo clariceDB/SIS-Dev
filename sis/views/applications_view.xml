@@ -3,46 +3,60 @@
     <record id="view_form_add_application" model="ir.ui.view">
         <field name="name">Applications</field>
         <field name="model">sis.application</field>
-        <field name="arch" type="xml">
-          <form>
-            <group>
-                <field name="name" />
-                <field name="surname" />
-                <field name="dob" />
-                <field name="gender" />
-                <field name="password" />
-                <field name="programme" />
-                <field name="transcript" />
-                <field name="address" />
-                <field name="phone" />
-                <field name="email" />
-                <field name="highest_qualification" />
-                <field name="prev_school" />
-                <field name="status" />
-            </group>
-          </form>
-        </field>
+        <field name="arch" type="xml"/>
+        <form>
+            <header>
+                <button name="button_accept" string="Accept" states="pending" class="oe_highlight" type="object"/>
+                <button name="button_declined" string="Decline" states="pending" class="oe_highlight" type="object"/>
+                <!--                <field name="status" widget="statusbar" statusbar_visible="pending, accepted, declined"/>-->
+            </header>
+            <sheet>
+                <field name="photo" widget="image" class="oe_left oe_avatar"/>
+                <div class="oe_title">
+                    <h3>
+                        <field name="name"/>
+                    </h3>
+                </div>
+                <group>
+                    <field name="surname"/>
+                    <field name="dob"/>
+                    <field name="gender"/>
+                    <field name="address"/>
+                    <field name="phone"/>
+                    <field name="email"/>
+                </group>
+                <group>
+                    <field name="transcript"/>
+                    <field name="highest_qualification"/>
+                    <field name="prev_school"/>
+                </group>
+                <group>
+                    <field name="password"/>
+                    <field name="programme"/>
+                    <field name="status"/>
+                </group>
+            </sheet>
+        </form>
     </record>
 
     <record id="view_tree_applications" model="ir.ui.view">
         <field name="name">Programme List View</field>
         <field name="model">sis.application</field>
         <field name="arch" type="xml">
-          <tree>
-              <field name="name" />
-              <field name="surname" />
-              <field name="dob" />
-              <field name="gender" />
-              <field name="id" />
-              <field name="programme" />
-              <field name="transcript" />
-              <field name="address" />
-              <field name="phone" />
-              <field name="email" />
-              <field name="highest_qualification" />
-              <field name="prev_school" />
-              <field name="status" />
-          </tree>
+            <tree>
+                <field name="name"/>
+                <field name="surname"/>
+                <field name="dob"/>
+                <field name="gender"/>
+                <field name="id"/>
+                <field name="programme"/>
+                <field name="transcript"/>
+                <field name="address"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="highest_qualification"/>
+                <field name="prev_school"/>
+            </tree>
         </field>
     </record>
 </odoo>
