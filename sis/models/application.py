@@ -1,5 +1,22 @@
 from odoo import models, fields, api
 import random
+from odoo.exceptions import ValidationError
+import re
+from . import programme
+
+
+EM = (r"[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$")
+
+
+def emailvalidation(email):
+
+    if email:
+        EMAIL_REGEX = re.compile(EM)
+        if not EMAIL_REGEX.match(email):
+            raise ValidationError(_('''This seems not to be valid email.
+            Please enter email in correct format!'''))
+        else:
+            return True
 
 
 class Application(models.Model):
@@ -13,15 +30,10 @@ class Application(models.Model):
         ('M', 'Male'),
         ('F', 'Female')
     ])
-    id = fields.Integer(string='ID', required=True)
+
     password = fields.Char(string='Password', required=True)
 
     programme = fields.Many2one('sis.programme', required=True)
-
-    # programme = fields.Selection([
-    #     ('BSc', 'Science'),
-    #     ('BAcc', 'Accounting'),
-    # ])
 
     transcript = fields.Binary(string='Transcript')
     address = fields.Char(string='Address')

@@ -1,5 +1,29 @@
 <?xml version="1.0"?>
 <odoo>
+    <record id="view_form_add_application" model="ir.ui.view">
+        <field name="name">Applications</field>
+        <field name="model">sis.application</field>
+        <field name="arch" type="xml">
+          <form>
+            <group>
+                <field name="name" />
+                <field name="surname" />
+                <field name="dob" />
+                <field name="gender" />
+                <field name="password" />
+                <field name="programme" />
+                <field name="transcript" />
+                <field name="address" />
+                <field name="phone" />
+                <field name="email" />
+                <field name="highest_qualification" />
+                <field name="prev_school" />
+                <field name="status" />
+            </group>
+          </form>
+        </field>
+    </record>
+
     <record id="view_tree_applications" model="ir.ui.view">
         <field name="name">Programme List View</field>
         <field name="model">sis.application</field>

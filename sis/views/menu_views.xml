@@ -59,7 +59,7 @@
     <act_window id="action_add_marks"
       name="Marks"
       res_model="sis.marks"
-      view_mode="tree"
+      view_mode="form,tree"
 	/>
 
     <menuitem id="menu_view_tree_add_lecturer_marks"
@@ -72,7 +72,7 @@
     <act_window id="action_view_applications"
       name="Applications"
       res_model="sis.application"
-      view_mode="tree"
+      view_mode="tree,form"
 	/>
 
     <menuitem id="menu_applications"
