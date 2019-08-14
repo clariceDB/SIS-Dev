@@ -48,7 +48,6 @@ class Application(models.Model):
         ('postgrad', 'Postgraduate'),
     ])
     prev_school = fields.Char(string='School')
-
     status = fields.Boolean(default=False)
 
     def _make_unique(self):

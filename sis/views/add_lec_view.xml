@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <odoo>
-  <record id="view_form_staff" model="ir.ui.view">
+  <record id="view_form_lec" model="ir.ui.view">
     <field name="name">Staff Member Form View</field>
     <field name="model">sis.lecturer</field>
     <field name="arch" type="xml">
@@ -9,15 +9,17 @@
           <field name="name" />
           <field name="surname" />
           <field name="email" />
+          <field name="password"/>
           <field name="id" />
           <field name="department" />
+          <field name="level"/>
         </group>
       </form>
     </field>
   </record>
 
-  <record id="view_tree_staff" model="ir.ui.view">
-    <field name="name">Satff Member List View</field>
+  <record id="view_tree_lec" model="ir.ui.view">
+    <field name="name">Staff Member List View</field>
     <field name="model">sis.lecturer</field>
     <field name="arch" type="xml">
       <tree>

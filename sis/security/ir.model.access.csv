@@ -16,3 +16,4 @@ access_application_student,Application Student Access,model_sis_application,stud
 access_application_sysadmin,Application SysAdmin Access,model_sis_application,system_admin,1,1,1,1
 access_application_lecturer,Application Lecturer Access,model_sis_application,lecturer_group,0,0,0,0
 access_application_acaadmin,Application Admin Access,model_sis_application,academic_admin_group,1,1,0,0
+access_marks_base,Marks Base Access,model_sis_marks,base.group_user,1,1,1,1
