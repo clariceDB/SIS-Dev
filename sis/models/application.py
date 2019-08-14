@@ -2,6 +2,8 @@ from odoo import models, fields, api
 import random
 from odoo.exceptions import ValidationError
 import re
+from . import programme
+
 
 EM = (r"[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$")
 
