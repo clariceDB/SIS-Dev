@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_tree_applications" model="ir.ui.view">
+        <field name="name">Programme List View</field>
+        <field name="model">sis.application</field>
+        <field name="arch" type="xml">
+          <tree>
+              <field name="name" />
+              <field name="surname" />
+              <field name="dob" />
+              <field name="gender" />
+              <field name="id" />
+              <field name="programme" />
+              <field name="transcript" />
+              <field name="address" />
+              <field name="phone" />
+              <field name="email" />
+              <field name="highest_qualification" />
+              <field name="prev_school" />
+              <field name="status" />
+          </tree>
+        </field>
+    </record>
+</odoo>
