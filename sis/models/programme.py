@@ -21,11 +21,13 @@ class Programme(models.Model):
         ('BEd', 'Bachelors in Education'),
     ])
 
-    #courses = fields.Many2many('sis.course')
+    courses = fields.Many2many('sis.course')
 
     level = fields.Selection([
         ('Test', 'Undergraduate Programme'),
         ('Test2', 'Postgraduate Programme'),
     ])
+
+    # student = fields.One2many(comodel_name='sis.programme', readonly=True)
 
     # students = fields.Many2many('sis.students')

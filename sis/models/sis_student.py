@@ -1,6 +1,7 @@
 from datetime import datetime
 from odoo import models, fields, api
 import random
+from . import programme
 
 
 class Student(models.Model):
@@ -36,6 +37,7 @@ class Student(models.Model):
     # ])  # this is temp. Eventually link to programme model
 
     programme = fields.Many2one('sis.programme')
+    programme_name = fields.Char(string='ProgrammeName')
 
     current_year = fields.Integer(string='Current Year', required=True, default=1, readonly=True)
     transcript = fields.Binary(string='Transcript')
@@ -64,6 +66,9 @@ class Student(models.Model):
 
     @api.model
     def create(self, vals):
+
+        print("PROGRAM NAME: ", self.programme.read())
+
         # Create the user
         res = super(Student, self).create(vals)
         self.env['res.users'].create({
@@ -72,8 +77,22 @@ class Student(models.Model):
             'login':vals['email'],
             'new_password':vals['password']
         })
+        print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
 
+        for record in self.env['sis.programme']:
+            record.programme_name = record.programme.name
+            print(record.programme_names)
+
+        stage = self.env['sis.programme'].search([])
+        print(stage)
+
+        data = self.env['sis.programme'].browse
+
+        for record in stage:
+            print('*****************************************')
+            print(record.name)
         # Assign the group
+        # 'name', '=', 'sis.programme.name'
         # self.assign_perms(res)
         # group = self.env.ref('student_group')
         # group.write({'users': [(4, self._uid)]})

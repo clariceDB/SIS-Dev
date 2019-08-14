@@ -1,7 +1,6 @@
 from odoo import models, fields, api
 import time
 from . import globals
-from . import sis_student
 
 
 class SysAdmin(models.Model):

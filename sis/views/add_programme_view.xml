@@ -11,7 +11,7 @@
             <field name="credits" />
             <field name="level" />
             <field name="designation" />
-<!--            <field name="courses" />-->
+            <field name="courses" />
 <!--            <field name="students" />-->
         </group>
       </form>

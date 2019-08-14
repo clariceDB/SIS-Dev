@@ -9,7 +9,7 @@ class Course(models.Model):
     name = fields.Char(string='Name', required=True)
     id = fields.Integer(string='ID', required=True)
     credits = fields.Integer(string='Credits', required=True)
-    level = fields.Integer(string='Level', required=True)
+    year = fields.Integer(string='Year', required=True)
     # students = fields.
 
     department = fields.Many2one('sis.department')
