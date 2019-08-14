@@ -8,6 +8,7 @@ class Student(models.Model):
 
     # _inherit = 'sis_student'
 
+    @api.depends('name', 'surname')
     def _make_unique(self):
         r = random.randint(1, 101)
         unique = self.name+self.surname+str(r)
@@ -22,19 +23,12 @@ class Student(models.Model):
     surname = fields.Char(string='Surname', required=True)
     dob = fields.Date('Date of Birth')
     state = fields.Boolean(string='Accepted', default=False)
-    unique = fields.Char(compute=_make_unique)
+    unique = fields.Char(compute=_make_unique, readonly=True)
 
     # age = fields.Date(compute='calculate_age')
 
     id = fields.Integer(string='ID')
     password = fields.Char(string='Password', required=True)
-
-    # programme = fields.Selection([
-    #     ('CS', 'Computer Science'),
-    #     ('ISM', 'Information Management Science'),
-    #     ('AM', 'Applied Maths'),
-    #     ('BM', 'Business Management')
-    # ])  # this is temp. Eventually link to programme model
 
     programme = fields.Many2one('sis.programme')
     programme_name = fields.Char(string='ProgrammeName')
