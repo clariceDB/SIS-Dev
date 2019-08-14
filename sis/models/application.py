@@ -35,11 +35,6 @@ class Application(models.Model):
 
     programme = fields.Many2one('sis.programme', required=True)
 
-    # programme = fields.Selection([
-    #     ('BSc', 'Science'),
-    #     ('BAcc', 'Accounting'),
-    # ])
-
     transcript = fields.Binary(string='Transcript')
     address = fields.Char(string='Address')
     phone = fields.Char(string='Phone')
