@@ -8,17 +8,12 @@ class Lecturer(models.Model):
 
     name = fields.Char(string='Name', required=True)
     surname = fields.Char(string='Surname', required=True)
-    id = fields.Integer(string='ID', required=True)
-    email = fields.Char(string='email', required=True)
+    id = fields.Integer(string='ID') #ID is done by the system
+    email = fields.Char(string='Email', required=True)
     password = fields.Char('Password', required=True)
-    level = fields.Char(string='Level', required=True)
+    level = fields.Char(string='Level')
     department = fields.Many2one('sis.department')
 
-    partner_id = fields.Many2one(
-        'res.partner',
-        delegate=True,
-        ondelete='cascade',
-        required=True)
 
     @api.model
     def create(self, vals):
@@ -28,7 +23,7 @@ class Lecturer(models.Model):
             'name':vals['name'],
             'email':vals['email'],
             'login':vals['email'],
-            'new_password': vals['password']
+            'new_password':vals['password']
         })
 
         # Assign the group
