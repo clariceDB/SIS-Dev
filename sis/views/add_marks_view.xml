@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
 <odoo>
-    <record id="view_form_lecturer_marks" model="ir.ui.view">
+    <record id="view_form_add_marks" model="ir.ui.view">
         <field name="name">Course Marks</field>
         <field name="model">sis.marks</field>
         <field name="arch" type="xml">
-        <form>
-            <group>
-                <field name="student" />
-                <field name="course" />
-                <field name="result" />
-            </group>
-        </form>
+            <form>
+                <group>
+                    <field name="student" />
+                    <field name="course" />
+                    <field name="result" />
+                </group>
+            </form>
         </field>
     </record>
 
 
-    <record id="view_tree_lecturer_marks" model="ir.ui.view">
-        <field name="name">Programme List View</field>
+    <record id="view_tree_add_marks" model="ir.ui.view">
+        <field name="name">Course Marks</field>
         <field name="model">sis.marks</field>
         <field name="arch" type="xml">
             <tree>

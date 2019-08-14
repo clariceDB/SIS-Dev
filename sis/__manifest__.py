@@ -33,7 +33,7 @@
         'views/add_programme_view.xml',
         'views/add_lec_view.xml',
         'views/applications_view.xml',
-        'views/add_lecturer_marks_view.xml',
+        'views/add_marks_view.xml',
         'views/rollover_view.xml',
     ],
     # only loaded in demonstration mode

@@ -33,9 +33,6 @@ class Student(models.Model):
     programme = fields.Many2one('sis.programme')
     programme_name = fields.Char(string='ProgrammeName')
 
-    # row = fields.Char(related='programme.row')
-    # programme_id = fields.Many2one('sis.programme', related='programme_id.row')
-
     current_year = fields.Integer(string='Current Year', required=True, default=1, readonly=True)
     transcript = fields.Binary(string='Transcript')
 
@@ -61,39 +58,43 @@ class Student(models.Model):
                 age = current_year - birth_year
                 data.age = age
 
-    @api.model
-    def create(self, vals):
+    # @api.model
+    # def create(self, vals):
 
+    @api.multi
+    def accept(self):
 
+        # Create the Student
+        # res = super(Student, self).create(vals)
 
-        # Create the user
-        res = super(Student, self).create(vals)
-        self.env['res.users'].create({
-            'name':vals['name'],
-            'email':vals['email'],
-            'login':vals['email'],
-            'new_password':vals['password']
-        })
-        print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+        #Create user
+        # self.env['res.users'].create({
+        #     'name':vals['name'],
+        #     'email':vals['email'],
+        #     'login':vals['email'],
+        #     'new_password':vals['password']
+        # })
 
-        for record in self.env['sis.programme']:
-            record.programme_name = record.programme.name
-            print(record.programme_names)
+        #MAKE USER AGAIN
+        self.env['res.users'].create({'name':self.name,
+                                        'email':self.email,
+                                        'login':self.email,
+                                        'new_password':self.password})
 
         stage = self.env['sis.programme'].search([])
-        print(stage)
 
-        data = self.env['sis.programme'].browse
+        print(self.programme.courses[0].department.department)
+        for i in range(0, len(self.programme.courses)):
+            student_course = self.programme.courses[i].name
+            course_department = self.programme.courses[i].department
+            print("---->", student_course, "*", course_department)
 
-        for record in stage:
-            print('*****************************************')
-            print(record.name)
         # Assign the group
         # 'name', '=', 'sis.programme.name'
         # self.assign_perms(res)
         # group = self.env.ref('student_group')
         # group.write({'users': [(4, self._uid)]})
-        return res
+
 
     # @api.multi
     # def set_student_group(self):
