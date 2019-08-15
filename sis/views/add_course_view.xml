@@ -1,32 +1,48 @@
 <?xml version="1.0"?>
 <odoo>
-  <record id="view_form_add_course" model="ir.ui.view">
-    <field name="name">Courses</field>
-    <field name="model">sis.course</field>
-    <field name="arch" type="xml">
-      <form>
-        <group>
-            <field name="name" />
-            <field name="id" />
-            <field name="credits" />
-            <field name="year" />
-            <field name="department" />
-<!--            <field name="students" />-->
-        </group>
-      </form>
-    </field>
-  </record>
+    <record id="view_form_add_course" model="ir.ui.view">
+        <field name="name">Courses</field>
+        <field name="model">sis.course</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <h1 style="text-align:center;">Student Profile</h1>
+                    </group>
 
-  <record id="view_tree_add_course" model="ir.ui.view">
-    <field name="name">Course List View</field>
-    <field name="model">sis.course</field>
-    <field name="arch" type="xml">
-      <tree>
-          <field name="name" />
-          <field name="credits" />
-          <field name="department" />
-          <field name="year"/>
-      </tree>
-    </field>
-  </record>
+                    <group>
+                        <h3>Personal Details</h3>
+                        <field name="name"/>
+                        <field name="dob"/>
+                        <field name="age"/>
+                        <field name="id"/>
+
+                    </group>
+
+
+                    <group>
+
+                        <field name="credits"/>
+                        <field name="year"/>
+                        <field name="department"/>
+                        <!--            <field name="students" />-->
+                    </group>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_add_course" model="ir.ui.view">
+        <field name="name">Course List View</field>
+        <field name="model">sis.course</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="credits"/>
+                <field name="department"/>
+                <field name="year"/>
+            </tree>
+        </field>
+    </record>
 </odoo>
