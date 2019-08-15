@@ -1,7 +1,6 @@
 from datetime import datetime
 from odoo import models, fields, api
 import random
-from . import programme
 
 
 class Student(models.Model):
@@ -63,9 +62,6 @@ class Student(models.Model):
 
     @api.model
     def create(self, vals):
-
-
-
         # Create the user
         res = super(Student, self).create(vals)
         self.env['res.users'].create({
