@@ -9,10 +9,14 @@
             <header>
                 <button name="rollover_year" string="Rollover" type="object"/>
             </header>
+            <header>
+                <button name="make_sysadmin" string="Make SysAdmin" type="object"/>
+            </header>
             <field name="current_year" />
             <field name="name" />
             <field name="surname" />
             <field name="password"/>
+            <field name="email"/>
         </group>
       </form>
     </field>
