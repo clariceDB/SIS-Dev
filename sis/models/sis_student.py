@@ -84,3 +84,14 @@ class Student(models.Model):
         # Assign the group
         student_group = self.env.ref('sis.student_group')
         res.groups_id = student_group
+
+    @api.depends('dob')
+    def calculate_age(self):
+        """ Description:- This method calculates the age on the basis of the
+        Birth Date entered in the 'dob' field. """
+        for data in self:
+            if data.dob:
+                current_year = datetime.datetime.now().year
+                birth_year = datetime.datetime.strptime(data.dob, "%Y-%m-%d").year
+                age = current_year - birth_year
+                data.age = age
