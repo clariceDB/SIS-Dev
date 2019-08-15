@@ -8,8 +8,17 @@
                 <header>
                     <button name="button_accept" string="Accept" class="oe_highlight" type="object"
                             attrs="{'invisible':['|',('status','=', 'declined'),('status','=','accepted')]}"/>
+
                     <button name="button_declined" string="Decline" class="oe_highlight" type="object"
                             attrs="{'invisible':['|',('status','=', 'declined'),('status','=','accepted')]}"/>
+
+                    <button name="send_accept_mail" string="Send Email" class="oe_highlight" type="object"
+                            attrs="{'invisible':['|',('status','=','pending'), ('status','=','declined')]}"
+                            confirm="Are you sure you want to send email to applicant?"/>
+
+                    <button name="send_decline_mail" string="Send Decline Email" class="oe_highlight" type="object"
+                            attrs="{'invisible':['|',('status','=', 'pending'), ('status','=','accepted')]}"
+                            confirm="Are you sure you want to send email to applicant?"/>
                 </header>
                 <sheet>
                     <group>
@@ -44,6 +53,10 @@
                         <h3>Application Status</h3>
                         <field name="status"/>
                     </group>
+                    <group>
+                        <h3>Email Notification</h3>
+                        <field name="email_status"/>
+                    </group>
                 </sheet>
             </form>
         </field>
@@ -67,6 +80,7 @@
                 <field name="highest_qualification"/>
                 <field name="prev_school"/>
                 <field name="status"/>
+                <field name="email_status"/>
             </tree>
         </field>
     </record>

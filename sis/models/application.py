@@ -1,19 +1,7 @@
 from odoo import models, fields, api
 import random
-from odoo.exceptions import ValidationError
 import re
-
-EM = (r"[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$")
-
-
-def emailvalidation(email):
-    if email:
-        EMAIL_REGEX = re.compile(EM)
-        if not EMAIL_REGEX.match(email):
-            raise ValidationError(_('''This seems not to be valid email.
-            Please enter email in correct format!'''))
-        else:
-            return True
+from odoo.exceptions import ValidationError
 
 
 class Application(models.Model):
@@ -56,24 +44,35 @@ class Application(models.Model):
                                ('declined', 'Declined')],
                               default='pending')
 
+    email_status = fields.Selection([('notsent', 'Not Sent'),
+                                     ('sent', 'Sent')],
+                                    default='notsent')
+
     @api.multi
     def button_accept(self):
         for rec in self:
             rec.write({'status': 'accepted'})
-
 
     @api.multi
     def button_declined(self):
         for rec in self:
             rec.write({'status': 'declined'})
 
-    def _make_unique(self):
-        print('##########################')
-        r = random.randint(1, 101)
-        unique = self.firstname + self.surname + str(r)
-        print(unique)
-        return unique
+    @api.one
+    def send_accept_mail(self):
+        message_body = "<h1>You are a TWAT</h1>>"
 
+        template_obj = self.env['mail.mail']
+        template_data = {
+            'subject': self.name,
+            'body_html': message_body,
+            'email_from': 'info.capewinelandscollege@gmail.com',
+            'email_to': self.email
+        }
+        template_id = template_obj.create(template_data)
+        template_obj.send(template_id)
+        for rec in self:
+            rec.write({'email_status': 'sent'})
 
 
     @api.multi
@@ -99,32 +98,53 @@ class Application(models.Model):
                                              'login': self.email,
                                              'new_password': self.password})
 
-        student_group = self.env.ref('sis.student_group')
-        res.groups_id = student_group
+    @api.one
+    def send_decline_mail(self):
+        message_body = "<h1>You are a TWAT</h1>>"
 
-    @api.multi
-    def enroll_student(self):
-        self.env['sis.student'].create({
-            'name': self.name,
-            'surname': self.surname,
-            'dob': self.dob,
-            'unique': self.unique,
-            'id': self.id,
-            'password': self.password,
-            'programme': self.programme,
-            'current_year': self.current_year,
-            'transcript': self.transcript,
-            'address': self.address,
-            'phone': self.phone,
-            'email': self.email,
-            'highest_qualification': self.highest_qualification,
-            'school': self.school
-        })
-        res = self.env["res.users"].create({ 'name': self.name,
-                                             'email': self.email,
-                                             'login': self.email,
-                                             'new_password': self.password})
+        template_obj = self.env['mail.mail']
+        template_data = {
+            'subject': self.name,
+            'body_html': message_body,
+            'email_from': 'info.capewinelandscollege@gmail.com',
+            'email_to': self.email
+        }
+        template_id = template_obj.create(template_data)
+        template_obj.send(template_id)
+        for rec in self:
+            rec.write({'email_status': 'sent'})
 
-        student_group = self.env.ref('sis.student_group')
-        res.groups_id = student_group
 
+def _make_unique(self):
+    print('##########################')
+    r = random.randint(1, 101)
+    unique = self.firstname + self.surname + str(r)
+    print(unique)
+    return unique
+
+
+@api.multi
+def enroll_student(self):
+    self.env['sis.student'].create({
+        'name': self.name,
+        'surname': self.surname,
+        'dob': self.dob,
+        'unique': self.unique,
+        'id': self.id,
+        'password': self.password,
+        'programme': self.programme,
+        'current_year': self.current_year,
+        'transcript': self.transcript,
+        'address': self.address,
+        'phone': self.phone,
+        'email': self.email,
+        'highest_qualification': self.highest_qualification,
+        'school': self.school
+    })
+    res = self.env["res.users"].create({'name': self.name,
+                                        'email': self.email,
+                                        'login': self.email,
+                                        'new_password': self.password})
+
+    student_group = self.env.ref('sis.student_group')
+    res.groups_id = student_group

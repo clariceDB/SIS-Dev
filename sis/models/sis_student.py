@@ -1,7 +1,6 @@
 from datetime import datetime
 from odoo import models, fields, api
 import random
-from . import programme
 
 
 class Student(models.Model):
