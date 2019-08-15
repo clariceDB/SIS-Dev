@@ -5,18 +5,6 @@ import re
 from datetime import date
 from . import programme
 
-EM = (r"[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$")
-
-
-def emailvalidation(email):
-    if email:
-        EMAIL_REGEX = re.compile(EM)
-        if not EMAIL_REGEX.match(email):
-            raise ValidationError(_('''This seems not to be valid email.
-            Please enter email in correct format!'''))
-        else:
-            return True
-
 
 class Application(models.Model):
     _name = 'sis.application'
@@ -57,6 +45,10 @@ class Application(models.Model):
                                ('declined', 'Declined')],
                               default='pending')
 
+    email_status = fields.Selection([('notsent', 'Not Sent'),
+                                     ('sent', 'Sent')],
+                                    default='notsent')
+
     @api.multi
     def button_accept(self):
         for rec in self:
@@ -87,6 +79,17 @@ class Application(models.Model):
         student_group = self.env.ref('sis.student_group')
         res.groups_id = student_group
 
+        template_obj = self.env['mail.mail']
+        template_data = {
+            'subject': self.name,
+            'body_html': message_body,
+            'email_from': 'info.capewinelandscollege@gmail.com',
+            'email_to': self.email
+        }
+        template_id = template_obj.create(template_data)
+        template_obj.send(template_id)
+        for rec in self:
+            rec.write({'email_status': 'sent'})
 
     @api.multi
     def button_declined(self):

@@ -1,7 +1,6 @@
 from datetime import datetime
 from odoo import models, fields, api
 import random
-from . import programme
 
 
 class Student(models.Model):
@@ -25,7 +24,7 @@ class Student(models.Model):
     state = fields.Boolean(string='Accepted', default=False)
     unique = fields.Char(compute=_make_unique, readonly=True)
 
-    # age = fields.Date(compute='calculate_age')
+    age = fields.Date(compute='calculate_age')
 
     id = fields.Integer(string='ID')
     password = fields.Char(string='Password', required=True)
