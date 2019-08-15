@@ -18,20 +18,14 @@ class Lecturer(models.Model):
 
     test = fields.Char(default=globals.Globals.get_year('a'), string='year', readonly=True)
 
-
-    @api.model
-    def create(self, vals):
-        # Create the user
-        res = super(Lecturer, self).create(vals)
-        self.env['res.users'].create({
-            'name':vals['name'],
-            'email':vals['email'],
-            'login':vals['email'],
-            'new_password':vals['password']
-        })
+    @api.multi
+    def make_lec(self):
+        # MAKE USER
+        res = self.env['res.users'].create({'name': self.name,
+                                            'email': self.email,
+                                            'login': self.email,
+                                            'new_password': self.password})
 
         # Assign the group
-        # self.assign_perms(res)
-        # group = self.env.ref('student_group')
-        # group.write({'users': [(4, self._uid)]})
-        return res
+        lecturer_group = self.env.ref('sis.lecturer_group')
+        res.groups_id = lecturer_group

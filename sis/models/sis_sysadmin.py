@@ -13,7 +13,8 @@ class SysAdmin(models.Model):
         return current_year
 
     name = fields.Char(string='Name', required=True)
-    surname = fields.Char(string='Surname', required=True)
+    surname = fields.Char(string='Surname')
+    email = fields.Char(string='Email', required=True)
     id = fields.Integer(string='ID', required=True)
     password = fields.Char(string='Password', required=True)
     current_year = fields.Char(default=globals.Globals.get_year('a'), string='Year', readonly=True)
@@ -35,8 +36,17 @@ class SysAdmin(models.Model):
             record.current_year = int(record.current_year) + 1
 
 
-    # @api.multi
-    #     self.env['sis.student']
+    @api.multi
+    def make_sysadmin(self):
+        # MAKE USER
+        res = self.env['res.users'].create({'name': self.name,
+                                            'email': self.email,
+                                            'login': self.email,
+                                            'new_password': self.password})
+
+        # Assign the group
+        sysadmin_group = self.env.ref('sis.sys_admin_group')
+        res.groups_id = sysadmin_group
 
 
 

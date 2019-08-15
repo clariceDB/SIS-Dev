@@ -6,6 +6,9 @@
     <field name="arch" type="xml">
       <form>
         <group>
+            <header>
+                <button name="accept" string="Create Student" type="object"/>
+            </header>
 			<field name="name" />
 			<field name="surname" />
 			<field name="email" />
@@ -16,6 +19,7 @@
 			<field name="address" />
 			<field name="phone" />
 			<field name="school" />
+            <field name="userid"/>
         </group>
       </form>
     </field>
