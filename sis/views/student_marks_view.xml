@@ -1,12 +1,13 @@
 <?xml version="1.0"?>
 <odoo>
-    <record id="view_form_add_marks" model="ir.ui.view">
+    <record id="view_form_student_marks" model="ir.ui.view">
         <field name="name">Course Marks</field>
         <field name="model">sis.marks</field>
         <field name="arch" type="xml">
+            <!--<filter domain="[('student.email', '=', 'current_user')]"/>-->
             <form>
                 <group>
-                    <field name="student" />
+                    <filter name="student" domain="[('result', '=', '10')]"/>
                     <field name="course" />
                     <field name="result" />
                 </group>
@@ -28,5 +29,3 @@
     </record>
 
 </odoo>
-
-

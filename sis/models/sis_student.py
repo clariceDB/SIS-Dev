@@ -63,25 +63,15 @@ class Student(models.Model):
 
     @api.multi
     def accept(self):
-
+        # self.user_id
         # Create the Student
         # res = super(Student, self).create(vals)
 
-        #Create user
-        # self.env['res.users'].create({
-        #     'name':vals['name'],
-        #     'email':vals['email'],
-        #     'login':vals['email'],
-        #     'new_password':vals['password']
-        # })
-
-        #MAKE USER AGAIN
-        self.env['res.users'].create({'name':self.name,
-                                        'email':self.email,
-                                        'login':self.email,
-                                        'new_password':self.password})
-
-        stage = self.env['sis.programme'].search([])
+        # MAKE USER
+        res = self.env['res.users'].create({'name': self.name,
+                                            'email': self.email,
+                                            'login': self.email,
+                                            'new_password': self.password})
 
         print(self.programme.courses[0].department.department)
         for i in range(0, len(self.programme.courses)):
@@ -90,53 +80,5 @@ class Student(models.Model):
             print("---->", student_course, "*", course_department)
 
         # Assign the group
-        # 'name', '=', 'sis.programme.name'
-        # self.assign_perms(res)
-        # group = self.env.ref('student_group')
-        # group.write({'users': [(4, self._uid)]})
-
-
-    # @api.multi
-    # def set_student_group(self):
-    #     commission_group = self.env.ref('sis.student_group')
-    #     commission_group.write({'users': [(4, self._uid)]})
-    #
-    # @api.multi
-    # def assign_perms(self, res):
-
-
-
-        # emp_grp = self.env.ref('base.group_user')
-        # done_student = self.env.ref('sis.student_group')
-        # group_list = [done_student.id, emp_grp.id]
-        # res.user_id.write({'groups_id': [(4, group_list)]})
-
-        # group = self.env['res.groups'].search([('id', '=', self.env.ref('sis.student_group').id)])
-        # group.write({'users': [(4, self._uid)]})
-
-    # @api.model
-    # def create(self, vals):
-    #     # cr, uid, vals, context = self
-    #     # Your logic goes here or call your method
-    #     res_id = super(Student, self).create(vals)
-    #     self.env['res.users'].create({'name':self.unique, 'email':self.email, 'login':self.email, 'new_password':self.password})
-    #     return res_id
-
-    # @api.model
-    # def create(self, values):
-    #     res = super(Student, self).create(values)
-    #     # self.state = True
-    #     self.env['res.users'].create({'name':self.unique, 'email':self.email, 'login':self.email, 'new_password':self.password})
-    #     group = self.env.search([('name', '=', 'student_group')])
-    #     group.write({'users': [(4, self._uid)]})
-    #     return res
-
-    # @api.multi
-    # def create_student(self):
-    #     x = self.env['res.users'].create({'name':self.unique, 'email':self.email, 'login':self.email, 'new_password':self.password})
-    #     group = self.env.search([('name', '=', 'student_group')])
-    #     group.write({'users': [(4, self._uid)]})
-
-    # def set_student_group(self, user_id):
-    #     group = self.env.ref('sis.student')
-    #     group.write({'users': [(4, user_id)]})
+        student_group = self.env.ref('sis.student_group')
+        res.groups_id = student_group

@@ -35,6 +35,7 @@
         'views/applications_view.xml',
         'views/add_marks_view.xml',
         'views/rollover_view.xml',
+        'views/student_marks_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
