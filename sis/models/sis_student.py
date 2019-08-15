@@ -24,20 +24,19 @@ class Student(models.Model):
     state = fields.Boolean(string='Accepted', default=False)
     unique = fields.Char(compute=_make_unique, readonly=True)
 
-    # dob = fields.Date('Date of Birth')
-    # age = fields.Date(compute='calculate_age')
+    dob = fields.Date('Date of Birth')
 
     id = fields.Integer(string='ID')
     password = fields.Char(string='Password', required=True)
 
-    programme = fields.Char(string='Programme Name')
+    programme = fields.Many2one('sis.programme', string='Programme Name')
 
     current_year = fields.Integer(string='Current Year', required=True, default=1, readonly=True)
     transcript = fields.Binary(string='Transcript')
 
     address = fields.Char(string='Address')
     phone = fields.Char(string='Phone')
-    email = fields.Char(string='email', required=True)
+    email = fields.Char(string='Email', required=True)
 
     highest_qualification = fields.Selection([
         ('matric', 'Matric Certificate'),

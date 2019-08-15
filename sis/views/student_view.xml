@@ -5,40 +5,29 @@
         <field name="model">sis.student</field>
         <field name="arch" type="xml">
             <form>
-                <group>
-                    <header>
-                        <button name="accept" string="Create Student" type="object"/>
-                    </header>
+                <sheet>
+                    <group>
+                        <h1 style="text-align:center;">Student Profile</h1>
+                    </group>
+                    <group>
+                        <h3>Personal Information</h3>
+                        <field name="name"/>
+                        <field name="surname"/>
+                        <field name="address"/>
+                        <field name="phone"/>
+                        <field name="highest_qualification"></field>
+                        <field name="school"/>
+                        <field name="email"/>
+                    </group>
 
-                    <sheet>
-                        <group>
-                            <h1 style="text-align:center;">Student Profile</h1>
-                        </group>
-                        <group>
-                            <h3>Personal Information</h3>
-                            <field name="name"/>
-                            <field name="surname"/>
-                            <field name="address"/>
-                            <field name="phone"/>
-                            <field name="highest_qualification"></field>
-                            <field name="school"/>
-                            <field name="email"/>
-                        </group>
+                    <group>
+                        <h3>Academic Information</h3>
+                        <field name="programme"/>
+                        <field name="id"/>
+                        <field name="current_year"/>
+                    </group>
+                </sheet>
 
-                        <group>
-                            <h3>Academic Information</h3>
-                            <field name="id"/>
-                            <field name="programme"/>
-                            <field name="current_year"/>
-                        </group>
-
-
-                    </sheet>
-
-
-
-                    <field name="userid"/>
-                </group>
             </form>
         </field>
     </record>
@@ -50,6 +39,7 @@
             <tree>
                 <field name="name"/>
                 <field name="surname"/>
+                <field name="id"/>
                 <field name="email"/>
                 <field name="programme"/>
                 <field name="current_year"/>
