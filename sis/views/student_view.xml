@@ -1,41 +1,59 @@
 <?xml version="1.0"?>
 <odoo>
-  <record id="view_form_student" model="ir.ui.view">
-    <field name="name">Student Form View</field>
-    <field name="model">sis.student</field>
-    <field name="arch" type="xml">
-      <form>
-        <group>
-            <header>
-                <button name="accept" string="Create Student" type="object"/>
-            </header>
-			<field name="name" />
-			<field name="surname" />
-			<field name="email" />
-			<field name="password"/>
-			<field name="id" />
-			<field name="current_year"/>
-			<field name="programme" />
-			<field name="address" />
-			<field name="phone" />
-			<field name="school" />
-            <field name="userid"/>
-        </group>
-      </form>
-    </field>
-  </record>
+    <record id="view_form_student" model="ir.ui.view">
+        <field name="name">Student Form View</field>
+        <field name="model">sis.student</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <header>
+                        <button name="accept" string="Create Student" type="object"/>
+                    </header>
 
-  <record id="view_tree_student" model="ir.ui.view">
-    <field name="name">SStudent List View</field>
-    <field name="model">sis.student</field>
-    <field name="arch" type="xml">
-      <tree>
-          <field name="name" />
-          <field name="surname" />
-          <field name="email" />
-		  <field name="programme" />
-		  <field name="current_year" />
-      </tree>
-    </field>
-  </record>
+                    <sheet>
+                        <group>
+                            <h1 style="text-align:center;">Student Profile</h1>
+                        </group>
+                        <group>
+                            <h3>Personal Information</h3>
+                            <field name="name"/>
+                            <field name="surname"/>
+                            <field name="address"/>
+                            <field name="phone"/>
+                            <field name="highest_qualification"></field>
+                            <field name="school"/>
+                            <field name="email"/>
+                        </group>
+
+                        <group>
+                            <h3>Academic Information</h3>
+                            <field name="id"/>
+                            <field name="programme"/>
+                            <field name="current_year"/>
+                        </group>
+
+
+                    </sheet>
+
+
+
+                    <field name="userid"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_student" model="ir.ui.view">
+        <field name="name">SStudent List View</field>
+        <field name="model">sis.student</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="surname"/>
+                <field name="email"/>
+                <field name="programme"/>
+                <field name="current_year"/>
+            </tree>
+        </field>
+    </record>
 </odoo>
