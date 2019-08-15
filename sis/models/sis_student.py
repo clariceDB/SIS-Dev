@@ -29,7 +29,7 @@ class Student(models.Model):
     id = fields.Integer(string='ID')
     password = fields.Char(string='Password', required=True)
 
-    programme = fields.Many2one('sis.programme', string='Programme Name')
+    programme = fields.Char(string='Programme Name')
 
     current_year = fields.Integer(string='Current Year', required=True, default=1, readonly=True)
     transcript = fields.Binary(string='Transcript')
