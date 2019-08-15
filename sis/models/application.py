@@ -102,10 +102,7 @@ def _make_unique(self):
     return unique
 
 
-    @api.multi
-    def button_declined(self):
-        for rec in self:
-            rec.write({'status': 'declined'})
+
 
 
 
