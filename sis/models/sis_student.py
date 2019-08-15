@@ -58,7 +58,6 @@ class Student(models.Model):
                 age = current_year - birth_year
                 data.age = age
 
-
     @api.model
     def create(self, vals):
         # Create the user
@@ -70,6 +69,9 @@ class Student(models.Model):
             'new_password':vals['password']
         })
         print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
+
+    # @api.model
+    # def create(self, vals):
 
     # @api.model
     # def create(self, vals):
