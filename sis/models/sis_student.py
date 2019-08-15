@@ -20,11 +20,12 @@ class Student(models.Model):
     name = fields.Char(string='Name',
                        required=True)
     surname = fields.Char(string='Surname', required=True)
-    dob = fields.Date('Date of Birth')
+
     state = fields.Boolean(string='Accepted', default=False)
     unique = fields.Char(compute=_make_unique, readonly=True)
 
-    age = fields.Date(compute='calculate_age')
+    # dob = fields.Date('Date of Birth')
+    # age = fields.Date(compute='calculate_age')
 
     id = fields.Integer(string='ID')
     password = fields.Char(string='Password', required=True)
@@ -58,14 +59,24 @@ class Student(models.Model):
                 age = current_year - birth_year
                 data.age = age
 
-    # @api.model
-    # def create(self, vals):
+    @api.model
+    def create(self, vals):
+        # Create the user
+        res = super(Student, self).create(vals)
+        self.env['res.users'].create({
+            'name':vals['name'],
+            'email':vals['email'],
+            'login':vals['email'],
+            'new_password':vals['password']
+        })
+
 
     @api.multi
     def accept(self):
         # self.user_id
         # Create the Student
         # res = super(Student, self).create(vals)
+
 
         # MAKE USER
         res = self.env['res.users'].create({'name': self.name,

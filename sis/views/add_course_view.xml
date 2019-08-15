@@ -7,21 +7,16 @@
             <form>
                 <sheet>
                     <group>
-                        <h1 style="text-align:center;">Student Profile</h1>
+                        <h1 style="text-align:center;">Course Profile</h1>
                     </group>
 
                     <group>
                         <h3>Personal Details</h3>
                         <field name="name"/>
-                        <field name="dob"/>
-                        <field name="age"/>
                         <field name="id"/>
-
                     </group>
 
-
                     <group>
-
                         <field name="credits"/>
                         <field name="year"/>
                         <field name="department"/>

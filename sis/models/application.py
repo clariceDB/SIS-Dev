@@ -1,8 +1,7 @@
 from odoo import models, fields, api
 from datetime import date
 import random
-from odoo.exceptions import ValidationError
-import re
+from datetime import date
 
 
 class Application(models.Model):
@@ -129,4 +128,19 @@ class Application(models.Model):
         }
         template_id = template_obj.create(template_data)
         template_obj.send(template_id)
+
+def _make_unique(self):
+    print('##########################')
+    r = random.randint(1, 101)
+    unique = self.firstname + self.surname + str(r)
+    print(unique)
+    return unique
+
+
+    @api.multi
+    def button_declined(self):
+        for rec in self:
+            rec.write({'status': 'declined'})
+
+
 
