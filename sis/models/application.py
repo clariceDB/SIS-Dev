@@ -57,10 +57,9 @@ class Application(models.Model):
         for rec in self:
             rec.write({'status': 'declined'})
 
-
     @ api.multi
     def enroll_student(self):
-        self.env['sis.student'].create({
+        student_object = self.env['sis.student'].create({
             'name': self.name,
             'surname': self.surname,
             'dob': self.dob,
@@ -80,6 +79,12 @@ class Application(models.Model):
                                             'email': self.email,
                                             'login': self.email,
                                             'new_password': self.password})
+
+        print(student_object.programme.courses[0].department.department)
+        for i in range(0, len(student_object.programme.courses)):
+            student_course = student_object.programme.courses[i].name
+            course_department = student_object.programme.courses[i].department
+            print("---->", student_course, "*", course_department)
 
         student_group = self.env.ref('sis.student_group')
         res.groups_id = student_group

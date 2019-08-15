@@ -47,6 +47,8 @@ class Student(models.Model):
 
     userid = fields.Char(string='User ID', readonly=True)
 
+    courses = fields.Many2many('sis.courses',string='All taken courses')
+
     @api.model
     def create(self, vals):
         # Create the user
