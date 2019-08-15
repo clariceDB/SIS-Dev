@@ -6,6 +6,9 @@
     <field name="arch" type="xml">
       <form>
         <group>
+          <header>
+                <button name="make_lec" string="Create Student" type="object"/>
+            </header>
           <field name="name" />
           <field name="surname" />
           <field name="email" />

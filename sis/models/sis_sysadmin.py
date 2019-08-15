@@ -35,8 +35,17 @@ class SysAdmin(models.Model):
             record.current_year = int(record.current_year) + 1
 
 
-    # @api.multi
-    #     self.env['sis.student']
+    @api.multi
+    def make_sysadmin(self):
+        # MAKE USER
+        res = self.env['res.users'].create({'name': self.name,
+                                            'email': self.email,
+                                            'login': self.email,
+                                            'new_password': self.password})
+
+        # Assign the group
+        sysadmin_group = self.env.ref('sis.sysadmin_group')
+        res.groups_id = sysadmin_group
 
 
 
