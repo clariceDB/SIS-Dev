@@ -47,6 +47,8 @@ class Student(models.Model):
 
     school = fields.Char(string='School')
 
+    userid = fields.Char(string='User ID', readonly=True)
+
     @api.depends('dob')
     def calculate_age(self):
         """ Description:- This method calculates the age on the basis of the
@@ -72,6 +74,9 @@ class Student(models.Model):
                                             'email': self.email,
                                             'login': self.email,
                                             'new_password': self.password})
+
+        self.userid = res.id
+        print('userid:   ',self.userid)
 
         print(self.programme.courses[0].department.department)
         for i in range(0, len(self.programme.courses)):

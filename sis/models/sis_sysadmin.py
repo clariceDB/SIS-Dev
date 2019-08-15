@@ -13,7 +13,8 @@ class SysAdmin(models.Model):
         return current_year
 
     name = fields.Char(string='Name', required=True)
-    surname = fields.Char(string='Surname', required=True)
+    surname = fields.Char(string='Surname')
+    email = fields.Char(string='Email', required=True)
     id = fields.Integer(string='ID', required=True)
     password = fields.Char(string='Password', required=True)
     current_year = fields.Char(default=globals.Globals.get_year('a'), string='Year', readonly=True)
@@ -44,7 +45,7 @@ class SysAdmin(models.Model):
                                             'new_password': self.password})
 
         # Assign the group
-        sysadmin_group = self.env.ref('sis.sysadmin_group')
+        sysadmin_group = self.env.ref('sis.sys_admin_group')
         res.groups_id = sysadmin_group
 
 

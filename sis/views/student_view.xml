@@ -19,6 +19,7 @@
 			<field name="address" />
 			<field name="phone" />
 			<field name="school" />
+            <field name="userid"/>
         </group>
       </form>
     </field>

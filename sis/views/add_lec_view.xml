@@ -7,7 +7,7 @@
       <form>
         <group>
           <header>
-                <button name="make_lec" string="Create Student" type="object"/>
+                <button name="make_lec" string="Create Lecturer" type="object"/>
             </header>
           <field name="name" />
           <field name="surname" />
