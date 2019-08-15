@@ -47,40 +47,4 @@ class Student(models.Model):
 
     userid = fields.Char(string='User ID', readonly=True)
 
-    courses = fields.Many2many('sis.courses',string='All taken courses')
 
-    @api.model
-    def create(self, vals):
-        # Create the user
-        res = super(Student, self).create(vals)
-        self.env['res.users'].create({
-            'name':vals['name'],
-            'email':vals['email'],
-            'login':vals['email'],
-            'new_password':vals['password']
-        })
-
-
-    @api.multi
-    def accept(self):
-        # self.user_id
-        # Create the Student
-        # res = super(Student, self).create(vals)
-
-        # MAKE USER
-        res = self.env['res.users'].create({'name': self.name,
-                                            'email': self.email,
-                                            'login': self.email,
-                                            'new_password': self.password})
-
-        self.userid = res.id
-
-        print(self.programme.courses[0].department.department)
-        for i in range(0, len(self.programme.courses)):
-            student_course = self.programme.courses[i].name
-            course_department = self.programme.courses[i].department
-            print("---->", student_course, "*", course_department)
-
-        # Assign the group
-        student_group = self.env.ref('sis.student_group')
-        res.groups_id = student_group
