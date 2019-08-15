@@ -18,6 +18,7 @@ class SysAdmin(models.Model):
     id = fields.Integer(string='ID', required=True)
     password = fields.Char(string='Password', required=True)
     current_year = fields.Char(default=globals.Globals.get_year('a'), string='Year', readonly=True)
+    userid = fields.Char(default="no id", string='UserID', readonly=True)
 
     @api.depends('current_year')
     @api.multi
@@ -44,6 +45,7 @@ class SysAdmin(models.Model):
                                             'login': self.email,
                                             'new_password': self.password})
 
+        self.userid = res.id
         # Assign the group
         sysadmin_group = self.env.ref('sis.sys_admin_group')
         res.groups_id = sysadmin_group

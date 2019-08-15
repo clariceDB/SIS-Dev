@@ -15,3 +15,6 @@ class Department(models.Model):
         ('Mathematics', 'Mathematics'),
     ])
 
+    lecturers = fields.One2many(comodel_name='sis.lecturer', inverse_name='department', string="Lecturers", readonly=True, copy=True)
+    courses = fields.One2many(comodel_name='sis.course', inverse_name='department', string="Courses", readonly=True, copy=True)
+

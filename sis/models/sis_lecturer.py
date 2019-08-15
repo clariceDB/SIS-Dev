@@ -15,6 +15,7 @@ class Lecturer(models.Model):
     password = fields.Char('Password', required=True)
     level = fields.Char(string='Level')
     department = fields.Many2one('sis.department')
+    userid = fields.Char(string='UserID', readonly=True)
 
     test = fields.Char(default=globals.Globals.get_year('a'), string='year', readonly=True)
 
@@ -26,6 +27,7 @@ class Lecturer(models.Model):
                                             'login': self.email,
                                             'new_password': self.password})
 
+        self.userid = res.id
         # Assign the group
         lecturer_group = self.env.ref('sis.lecturer_group')
         res.groups_id = lecturer_group

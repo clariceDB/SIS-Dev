@@ -17,6 +17,7 @@
             <field name="surname" />
             <field name="password"/>
             <field name="email"/>
+            <field name="userid"/>
         </group>
       </form>
     </field>

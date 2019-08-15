@@ -9,6 +9,7 @@
                     <field name="student" />
                     <field name="course" />
                     <field name="result" />
+                    <field name="userid"/>
                 </group>
             </form>
         </field>

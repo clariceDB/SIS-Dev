@@ -7,7 +7,7 @@
       <form>
         <group>
             <header>
-                <button name="accept" string="Create Student" type="object"/>
+                <button name="accept" string="Create Student" type="object" groups="sis.academic_admin_group"/>
             </header>
 			<field name="name" />
 			<field name="surname" />

@@ -76,7 +76,6 @@ class Student(models.Model):
                                             'new_password': self.password})
 
         self.userid = res.id
-        print('userid:   ',self.userid)
 
         print(self.programme.courses[0].department.department)
         for i in range(0, len(self.programme.courses)):

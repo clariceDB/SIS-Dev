@@ -18,7 +18,7 @@ access_department_acaadmin,Department Admin Access,model_sis_department,academic
 access_marks_student,Marks Student Access,model_sis_marks,student_group,1,0,0,0
 access_marks_sysadmin,Marks SysAdmin Access,model_sis_marks,sys_admin_group,1,1,1,1
 access_marks_lecturer,Marks Lecturer Access,model_sis_marks,lecturer_group,1,0,1,0
-access_marks_acaadmin,Marks Admin Access,model_sis_marks,academic_admin_group,1,1,0,0
+access_marks_acaadmin,Marks Admin Access,model_sis_marks,academic_admin_group,1,1,1,0
 access_programme_student,Programme Student Access,model_sis_programme,student_group,1,0,0,0
 access_programme_sysadmin,Programme SysAdmin Access,model_sis_programme,sys_admin_group,1,1,1,1
 access_programme_lecturer,Programme Lecturer Access,model_sis_programme,lecturer_group,1,0,0,0
@@ -30,7 +30,8 @@ access_lecturer_acaadmin,Lecturer Admin Access,model_sis_lecturer,academic_admin
 access_student_student,Student Student Access,model_sis_student,student_group,1,1,0,0
 access_student_sysadmin,Student SysAdmin Access,model_sis_student,sys_admin_group,1,1,1,1
 access_student_lecturer,Student Lecturer Access,model_sis_student,lecturer_group,1,0,0,0
-access_student_acaadmin,Student Admin Access,model_sis_student,academic_admin_group,1,1,0,0
+access_student_acaadmin,Student Admin Access,model_sis_student,academic_admin_group,1,1,1,0
+access_system_administrator,Student Root Access,model_sis_student,base.user_root,1,1,1,1
 access_sysadmin_student,SysAdmin Student Access,model_sis_sysadmin,student_group,0,0,0,0
 access_sysadmin_sysadmin,SysAdmin SysAdmin Access,model_sis_sysadmin,sys_admin_group,1,1,1,1
 access_sysadmin_lecturer,SysAdmin Lecturer Access,model_sis_sysadmin,lecturer_group,0,0,0,0
