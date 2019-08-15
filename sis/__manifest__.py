@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "CWC Student Information System",
+    'name': "Student Information System",
 
     'summary': """
         Cape Winelands College Student Information System 

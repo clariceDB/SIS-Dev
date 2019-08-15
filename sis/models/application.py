@@ -4,12 +4,10 @@ from odoo.exceptions import ValidationError
 import re
 from . import programme
 
-
 EM = (r"[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$")
 
 
 def emailvalidation(email):
-
     if email:
         EMAIL_REGEX = re.compile(EM)
         if not EMAIL_REGEX.match(email):
@@ -44,19 +42,12 @@ class Application(models.Model):
         ('bachelors', 'Bachelors'),
         ('postgrad', 'Postgraduate'),
     ])
-    prev_school = fields.Char(string='School')
+    prev_school = fields.Char(string='School/Academic Institution')
 
-
-    status = fields.Boolean(default=False)
-
-    STATES = [
-        ('pending', 'Pending'),
-        ('accepted', 'Accepted'),
-        ('declined', 'Declined'),
-    ]
-
-    status = fields.Selection(STATES, default=STATES[0][0])
-
+    status = fields.Selection([('pending', 'Pending'),
+                               ('accepted', 'Accepted'),
+                               ('declined', 'Declined')],
+                              default='pending')
 
     @api.multi
     def button_accept(self):
@@ -69,11 +60,9 @@ class Application(models.Model):
         for rec in self:
             rec.write({'status': 'declined'})
 
-
     def _make_unique(self):
         print('##########################')
         r = random.randint(1, 101)
-        unique = self.firstname+self.surname+str(r)
+        unique = self.firstname + self.surname + str(r)
         print(unique)
         return unique
-

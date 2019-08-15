@@ -1,42 +1,52 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="view_form_add_application" model="ir.ui.view">
         <field name="name">Applications</field>
         <field name="model">sis.application</field>
-        <field name="arch" type="xml"/>
-        <form string="CWC Application Form">
-            <header>
-                <button name="button_accept" string="Accept" states="pending" icon="fa-ban" class="oe_highlight" type="object"/>
-                <button name="button_declined" string="Decline" states="pending" class="oe_highlight" type="object"/>
-                <field name="status" widget="statusbar" statusbar_visible="pending, accepted, declined"/>
-            </header>
-            <sheet>
-                <field name="photo" widget="image" class="oe_left oe_avatar"/>
-                <div class="oe_title">
-                    <h3>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="button_accept" string="Accept" class="oe_highlight" type="object"
+                            attrs="{'invisible':['|',('status','=', 'declined'),('status','=','accepted')]}"/>
+                    <button name="button_declined" string="Decline" class="oe_highlight" type="object"
+                            attrs="{'invisible':['|',('status','=', 'declined'),('status','=','accepted')]}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <h1 style="text-align:center;">Applicant</h1>
+                    </group>
+
+                    <group>
+                        <h3>Personal Details</h3>
                         <field name="name"/>
-                    </h3>
-                </div>
-                <group>
-                    <field name="surname"/>
-                    <field name="dob"/>
-                    <field name="gender"/>
-                    <field name="address"/>
-                    <field name="phone"/>
-                    <field name="email"/>
-                </group>
-                <group>
-                    <field name="transcript"/>
-                    <field name="highest_qualification"/>
-                    <field name="prev_school"/>
-                </group>
-                <group>
-                    <field name="password"/>
-                    <field name="programme"/>
-                    <field name="status"/>
-                </group>
-            </sheet>
-        </form>
+                        <field name="surname"/>
+                        <field name="dob"/>
+                        <field name="gender"/>
+                        <field name="address"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                    </group>
+                    <group>
+                        <h3>Academic Background</h3>
+                        <field name="transcript"/>
+                        <field name="highest_qualification"/>
+                        <field name="prev_school"/>
+                    </group>
+                    <group>
+                        <h3>Programme Application</h3>
+                        <field name="programme"/>
+                    </group>
+                    <group>
+                        <h3>Set Your Password To Log In</h3>
+                        <field name="password"/>
+                    </group>
+                    <group>
+                        <h3>Application Status</h3>
+                        <field name="status"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
     </record>
 
     <record id="view_tree_applications" model="ir.ui.view">
@@ -56,6 +66,7 @@
                 <field name="email"/>
                 <field name="highest_qualification"/>
                 <field name="prev_school"/>
+                <field name="status"/>
             </tree>
         </field>
     </record>
