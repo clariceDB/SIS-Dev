@@ -4,11 +4,11 @@
         <field name="name">Applications</field>
         <field name="model">sis.application</field>
         <field name="arch" type="xml"/>
-        <form>
+        <form string="CWC Application Form">
             <header>
-                <button name="button_accept" string="Accept" states="pending" class="oe_highlight" type="object"/>
+                <button name="button_accept" string="Accept" states="pending" icon="fa-ban" class="oe_highlight" type="object"/>
                 <button name="button_declined" string="Decline" states="pending" class="oe_highlight" type="object"/>
-                <!--                <field name="status" widget="statusbar" statusbar_visible="pending, accepted, declined"/>-->
+                <field name="status" widget="statusbar" statusbar_visible="pending, accepted, declined"/>
             </header>
             <sheet>
                 <field name="photo" widget="image" class="oe_left oe_avatar"/>
