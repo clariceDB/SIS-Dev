@@ -41,11 +41,11 @@ class Application(models.Model):
     status = fields.Selection([('pending', 'Pending'),
                                ('accepted', 'Accepted'),
                                ('declined', 'Declined')],
-                              default='pending')
+                              default='pending', readonly=True)
 
     email_status = fields.Selection([('notsent', 'Not Sent'),
                                      ('sent', 'Sent')],
-                                    default='notsent')
+                                    default='notsent', readonly=True)
 
     @api.multi
     def button_accept(self):
@@ -73,6 +73,7 @@ class Application(models.Model):
                                             'email': self.email,
                                             'login': self.email,
                                             'new_password': self.password})
+
         student_group = self.env.ref('sis.student_group')
         res.groups_id = student_group
 
