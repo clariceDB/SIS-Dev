@@ -49,16 +49,16 @@ class Student(models.Model):
 
     courses = fields.Many2many('sis.courses',string='All taken courses')
 
-    @api.model
-    def create(self, vals):
-        # Create the user
-        res = super(Student, self).create(vals)
-        self.env['res.users'].create({
-            'name':vals['name'],
-            'email':vals['email'],
-            'login':vals['email'],
-            'new_password':vals['password']
-        })
+    # @api.model
+    # def create(self, vals):
+    #     # Create the user
+    #     res = super(Student, self).create(vals)
+    #     self.env['res.users'].create({
+    #         'name':vals['name'],
+    #         'email':vals['email'],
+    #         'login':vals['email'],
+    #         'new_password':vals['password']
+    #     })
 
 
     @api.multi
