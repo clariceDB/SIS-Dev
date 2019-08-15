@@ -39,7 +39,7 @@
                         <h3>Academic Background</h3>
                         <field name="transcript"/>
                         <field name="highest_qualification"/>
-                        <field name="prev_school"/>
+                        <field name="school"/>
                     </group>
                     <group>
                         <h3>Programme Application</h3>
@@ -78,7 +78,7 @@
                 <field name="phone"/>
                 <field name="email"/>
                 <field name="highest_qualification"/>
-                <field name="prev_school"/>
+                <field name="school"/>
                 <field name="status"/>
                 <field name="email_status"/>
             </tree>
