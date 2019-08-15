@@ -2,8 +2,6 @@ from odoo import models, fields, api
 import random
 from odoo.exceptions import ValidationError
 import re
-from . import programme
-
 
 EM = (r"[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$")
 
@@ -35,6 +33,11 @@ class Application(models.Model):
 
     programme = fields.Many2one('sis.programme', required=True)
 
+    # programme = fields.Selection([
+    #     ('BSc', 'Science'),
+    #     ('BAcc', 'Accounting'),
+    # ])
+
     transcript = fields.Binary(string='Transcript')
     address = fields.Char(string='Address')
     phone = fields.Char(string='Phone')
@@ -45,30 +48,7 @@ class Application(models.Model):
         ('postgrad', 'Postgraduate'),
     ])
     prev_school = fields.Char(string='School')
-
-
     status = fields.Boolean(default=False)
-
-    STATES = [
-        ('pending', 'Pending'),
-        ('accepted', 'Accepted'),
-        ('declined', 'Declined'),
-    ]
-
-    status = fields.Selection(STATES, default=STATES[0][0])
-
-
-    @api.multi
-    def button_accept(self):
-        for rec in self:
-            rec.write({'status': 'accepted'})
-
-
-    @api.multi
-    def button_declined(self):
-        for rec in self:
-            rec.write({'status': 'declined'})
-
 
     def _make_unique(self):
         print('##########################')
@@ -77,3 +57,30 @@ class Application(models.Model):
         print(unique)
         return unique
 
+
+
+    @api.multi
+    def enroll_student(self):
+        self.env['sis.student'].create({
+            'name': self.name,
+            'surname': self.surname,
+            'dob': self.dob,
+            'unique': self.unique,
+            'id': self.id,
+            'password': self.password,
+            'programme': self.programme,
+            'current_year': self.current_year,
+            'transcript': self.transcript,
+            'address': self.address,
+            'phone': self.phone,
+            'email': self.email,
+            'highest_qualification': self.highest_qualification,
+            'school': self.school
+        })
+        res = self.env["res.users"].create({ 'name': self.name,
+                                             'email': self.email,
+                                             'login': self.email,
+                                             'new_password': self.password})
+
+        student_group = self.env.ref('sis.student_group')
+        res.groups_id = student_group
