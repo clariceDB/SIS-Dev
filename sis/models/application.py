@@ -20,7 +20,8 @@ class Application(models.Model):
     dob = fields.Date('Date of Birth')
     gender = fields.Selection([
         ('M', 'Male'),
-        ('F', 'Female')
+        ('F', 'Female'),
+        ('O', 'Other')
     ])
 
     password = fields.Char(string='Password', required=True)

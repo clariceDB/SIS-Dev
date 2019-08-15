@@ -46,5 +46,3 @@ class Student(models.Model):
     school = fields.Char(string='School')
 
     userid = fields.Char(string='User ID', readonly=True)
-
-
