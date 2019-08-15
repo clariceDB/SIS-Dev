@@ -7,6 +7,8 @@ class Application(models.Model):
     _name = 'sis.application'
     _description = 'application model'
 
+    print("Hey FRANDZ")
+    
     def _make_unique(self):
         print('##########################')
         r = random.randint(1, 101)
@@ -35,6 +37,7 @@ class Application(models.Model):
         ('bachelors', 'Bachelors'),
         ('postgrad', 'Postgraduate'),
     ])
+
     school = fields.Char(string='School/Academic Institution')
 
     status = fields.Selection([('pending', 'Pending'),
@@ -121,7 +124,3 @@ class Application(models.Model):
     def button_declined(self):
         for rec in self:
             rec.write({'status': 'declined'})
-
-
-
-
