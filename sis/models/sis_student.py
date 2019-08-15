@@ -30,8 +30,7 @@ class Student(models.Model):
     id = fields.Integer(string='ID')
     password = fields.Char(string='Password', required=True)
 
-    programme = fields.Many2one('sis.programme')
-    programme_name = fields.Char(string='ProgrammeName')
+    programme = fields.Char(string='Programme Name')
 
     # row = fields.Char(related='programme.row')
     # programme_id = fields.Many2one('sis.programme', related='programme_id.row')
