@@ -1,11 +1,13 @@
 <?xml version="1.0"?>
 <odoo>
+<!--  Create lecturer form -->
   <record id="view_form_lec" model="ir.ui.view">
     <field name="name">Staff Member Form View</field>
     <field name="model">sis.lecturer</field>
     <field name="arch" type="xml">
       <form>
         <group>
+<!--  Button to create the lecturer user and add them to the system-->
           <header>
                 <button name="make_lec" string="Create Lecturer" type="object"/>
             </header>
@@ -21,7 +23,7 @@
       </form>
     </field>
   </record>
-
+<!--Lecture tree view-->
   <record id="view_tree_lec" model="ir.ui.view">
     <field name="name">Staff Member List View</field>
     <field name="model">sis.lecturer</field>

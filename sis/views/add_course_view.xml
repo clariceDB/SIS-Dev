@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <odoo>
+<!-- Creating a course with attributes form-->
     <record id="view_form_add_course" model="ir.ui.view">
         <field name="name">Courses</field>
         <field name="model">sis.course</field>
@@ -27,7 +28,7 @@
             </form>
         </field>
     </record>
-
+<!-- Creating a course tree view-->
     <record id="view_tree_add_course" model="ir.ui.view">
         <field name="name">Course List View</field>
         <field name="model">sis.course</field>

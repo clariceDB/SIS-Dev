@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <odoo>
+    <!--Form to provide rollover function moving students to next academic year-->
   <record id="view_form_rollover" model="ir.ui.view">
     <field name="name">Rollover</field>
     <field name="model">sis.sysadmin</field>
@@ -7,9 +8,11 @@
       <form>
         <group>
             <header>
+                <!--Button to rollover system to next academic year-->
                 <button name="rollover_year" string="Rollover" type="object"/>
             </header>
             <header>
+                <!--Button to create academic admin-->
                 <button name="make_sysadmin" string="Make SysAdmin" type="object"/>
             </header>
             <field name="current_year" />

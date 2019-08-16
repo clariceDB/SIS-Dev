@@ -5,11 +5,10 @@ from datetime import date
 
 
 class Application(models.Model):
+    """"Model to process the application form of prospective students"""
     _name = 'sis.application'
     _description = 'application model'
 
-    print("Hey FRANDZ")
-    
     def _make_unique(self):
         print('##########################')
         r = random.randint(1, 101)

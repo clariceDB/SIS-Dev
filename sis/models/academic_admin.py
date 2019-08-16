@@ -2,6 +2,7 @@ from odoo import models, fields
 
 
 class AcademicAdmin(models.Model):
+    """Model for the academic admin of the institution"""
 
     _name = 'sis.academicadmin'
     _description = 'academic admin model'

@@ -3,11 +3,13 @@ from odoo import models, fields, api
 from . import globals
 
 class Marks(models.Model):
+    """The marks model is used to map students results to the particular student"""
     _name = 'sis.marks'
     _description = 'Marks model'
 
     @api.multi
     def _get_current_user(self):
+        """Method for traversing through records to find the current user"""
         for record in self:
             record.current_user = self.env.user
         print('^^^^^^^^')

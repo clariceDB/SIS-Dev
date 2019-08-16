@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <odoo>
+    <!--Enter student marks-->
     <record id="view_form_student_marks" model="ir.ui.view">
         <field name="name">Course Marks</field>
         <field name="model">sis.marks</field>
@@ -15,7 +16,7 @@
         </field>
     </record>
 
-
+    <!--View students marls-->
     <record id="view_tree_add_marks" model="ir.ui.view">
         <field name="name">Course Marks</field>
         <field name="model">sis.marks</field>
