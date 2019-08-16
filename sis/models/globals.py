@@ -16,4 +16,4 @@ class Globals():
             res = int(year)
             return res
         else:
-            return year
+            return int(year) + 1

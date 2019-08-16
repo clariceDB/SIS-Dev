@@ -10,10 +10,8 @@ class Application(models.Model):
     _description = 'application model'
 
     def _make_unique(self):
-        print('##########################')
         r = random.randint(1, 101)
         unique = self.name + self.surname + str(r)
-        print(unique)
         return unique
 
     name = fields.Char(string='Name', required=True)
@@ -87,7 +85,7 @@ class Application(models.Model):
             course_year = self.programme.courses[i].year
             department = self.programme.courses[i].department
             self.env['sis.marks'].create({
-                'student': res.id,
+                'student': self.unique,
                 'course_id': course_id,
                 'course_name': course_name,
                 'course_credits': course_credits,

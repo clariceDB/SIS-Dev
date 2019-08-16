@@ -29,6 +29,7 @@
                 <field name="course_credits"/>
                 <field name="course_year"/>
                 <field name="result" />
+                <field name="department"/>
             </tree>
         </field>
     </record>

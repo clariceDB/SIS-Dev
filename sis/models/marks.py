@@ -1,26 +1,18 @@
 from odoo import models, fields, api
-
 from . import globals
+
 
 class Marks(models.Model):
     """The marks model is used to map students results to the particular student"""
     _name = 'sis.marks'
     _description = 'Marks model'
+    _rec_name = 'course_name'
 
     @api.multi
     def _get_current_user(self):
         """Method for traversing through records to find the current user"""
         for record in self:
             record.current_user = self.env.user
-        print('^^^^^^^^')
-        print(record.current_user)
-        # self.update({'current_user': self.env.user.id})
-
-    @api.multi
-    def _test_method(self):
-        print('*****************************')
-        print(self.current_year)
-        return '1'
 
     student = fields.Char(string='student id')
     course_id = fields.Char(string='Course ID')
@@ -32,10 +24,7 @@ class Marks(models.Model):
     course = fields.Many2one(comodel_name='sis.course')
 
     current_user = fields.Many2one('res.users', compute=_get_current_user)
-    # department = self.
 
-    #res = Super.(Class_name,Self).create(vals)
-    #res is your new record id
 
 
 
