@@ -101,7 +101,8 @@ class Application(models.Model):
                 'course_name': course_name,
                 'course_credits': course_credits,
                 'course_year': course_year,
-                'department': department
+                'department': department,
+                'student_year': self.current_year
             })
 
     @api.multi

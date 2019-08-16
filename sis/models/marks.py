@@ -22,6 +22,7 @@ class Marks(models.Model):
     department = fields.Char(string='Department')
     result = fields.Integer(string='Result')
     course = fields.Many2one(comodel_name='sis.course')
+    student_year = fields.Char(string="Student Year")
 
     current_user = fields.Many2one('res.users', compute=_get_current_user)
 
