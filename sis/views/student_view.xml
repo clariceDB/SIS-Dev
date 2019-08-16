@@ -22,7 +22,7 @@
 
                     <group>
                         <h3>Academic Information</h3>
-                        <field name="programme"/>
+                        <field name="programme_name"/>
                         <field name="id"/>
                         <field name="current_year"/>
                     </group>
@@ -42,7 +42,7 @@
                 <field name="unique"/>
                 <field name="id"/>
                 <field name="email"/>
-                <field name="programme"/>
+                <field name="programme_name"/>
                 <field name="current_year"/>
             </tree>
         </field>

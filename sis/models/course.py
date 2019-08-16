@@ -4,12 +4,13 @@ from odoo import models, fields
 class Course(models.Model):
     _name = 'sis.course'
     _description = 'course model'
-    _rec_name = 'name'
+    _rec_name = 'course_name'
 
-    name = fields.Char(string='Name', required=True)
-    id = fields.Integer(string='ID', required=True)
-    credits = fields.Integer(string='Credits', required=True)
-    year = fields.Integer(string='Year', required=True)
+    course_name = fields.Char(string='Name', required=True)
+    id = fields.Integer(string='ID')
+    credits = fields.Integer(string='Credits')
+    year = fields.Integer(string='Year')
+    student_id = fields.Char(string='student id')
     # students = fields.
 
-    department = fields.Many2one('sis.department')
+    department = fields.Char(string="Department")

@@ -62,7 +62,7 @@ class Application(models.Model):
             'unique': self.unique,
             'id': self.id,
             'password': self.password,
-            'programme': self.programme.name,
+            'programme_name': self.programme.name,
             'current_year': self.current_year,
             'transcript': self.transcript,
             'address': self.address,
@@ -80,6 +80,21 @@ class Application(models.Model):
 
         student_group = self.env.ref('sis.student_group')
         res.groups_id = student_group
+
+        for i in range(0, len(self.programme.courses)):
+            course_name = self.programme.courses[i].course_name
+            course_id = self.programme.courses[i].id
+            course_credits = self.programme.courses[i].credits
+            course_year = self.programme.courses[i].year
+            department = self.programme.courses[i].department
+            self.env['sis.marks'].create({
+                'student': res.id,
+                'course_id': course_id,
+                'course_name': course_name,
+                'course_credits': course_credits,
+                'course_year': course_year,
+                'department': department
+            })
 
     @api.multi
     def button_declined(self):

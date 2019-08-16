@@ -14,6 +14,22 @@ class Student(models.Model):
         print(unique)
         return unique
 
+    @api.depends('programme_name')
+    def _get_programme(self):
+
+        for rec in self:
+            object = rec.env['sis.programme'].search([('name','=',rec.programme_name)])
+            if object:
+                rec.programme = object
+
+        print('*^*^*^&*&*%&%&^*^*^*^*^')
+        print(self.programme_name)
+        print('***************************')
+        print(object)
+        print(object.name)
+
+
+
     _name = 'sis.student'
     _description = 'student model'
 
@@ -29,9 +45,10 @@ class Student(models.Model):
     id = fields.Integer(string='ID')
     password = fields.Char(string='Password', required=True)
 
-    programme = fields.Char(string='Programme Name')
+    programme_name = fields.Char(string='Programme Name')
+    # programme = fields.Many2one(compute="_get_programme", string='Programme')
 
-    current_year = fields.Integer(string='Current Year', required=True, default=1, readonly=True)
+    current_year = fields.Char(string='Current Year', required=True, default=1, readonly=True)
     transcript = fields.Binary(string='Transcript')
 
     address = fields.Char(string='Address')

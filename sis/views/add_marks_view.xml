@@ -7,9 +7,11 @@
             <form>
                 <group>
                     <field name="student" />
-                    <field name="course" />
+                    <field name="course_name" />
+                    <field name="course_credits"/>
+                    <field name="course_year"/>
                     <field name="result" />
-                    <field name="userid"/>
+                    <field name="department"/>
                 </group>
             </form>
         </field>
@@ -22,7 +24,9 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="student" />
-                <field name="course" />
+                <field name="course_name" />
+                <field name="course_credits"/>
+                <field name="course_year"/>
                 <field name="result" />
             </tree>
         </field>

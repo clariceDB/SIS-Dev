@@ -7,8 +7,8 @@
             <!--<filter domain="[('student.email', '=', 'current_user')]"/>-->
             <form>
                 <group>
-                    <filter name="student" domain="[('result', '=', '10')]"/>
-                    <field name="course" />
+                    <filter name="student"/>
+                    <field name="course_name" />
                     <field name="result" />
                 </group>
             </form>
@@ -22,7 +22,9 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="student" />
-                <field name="course" />
+                <field name="course_name" />
+                <field name="course_year"/>
+                <field name="course_credits"/>
                 <field name="result" />
             </tree>
         </field>

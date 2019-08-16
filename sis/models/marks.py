@@ -5,7 +5,6 @@ from . import globals
 class Marks(models.Model):
     _name = 'sis.marks'
     _description = 'Marks model'
-    _rec_name = 'course'
 
     @api.multi
     def _get_current_user(self):
@@ -21,8 +20,12 @@ class Marks(models.Model):
         print(self.current_year)
         return '1'
 
-    student = fields.Many2one('sis.student')
-    userid = fields.Char(string='UserID')
+    student = fields.Char(string='student id')
+    course_id = fields.Char(string='Course ID')
+    course_year = fields.Char(string='Course year')
+    course_name = fields.Char(string='Course Name')
+    course_credits = fields.Char(string="Course Credits")
+    department = fields.Char(string='Department')
     result = fields.Integer(string='Result')
     course = fields.Many2one(comodel_name='sis.course')
 
