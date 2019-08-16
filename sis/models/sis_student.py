@@ -31,7 +31,6 @@ class Student(models.Model):
     password = fields.Char(string='Password', required=True)
 
     programme_name = fields.Char(string='Programme Name')
-    # programme = fields.Many2one(compute="_get_programme", string='Programme')
 
     current_year = fields.Char(default='1', string='Year', readonly=True)
     transcript = fields.Binary(string='Transcript')

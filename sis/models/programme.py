@@ -28,7 +28,3 @@ class Programme(models.Model):
         ('Test', 'Undergraduate Programme'),
         ('Test2', 'Postgraduate Programme'),
     ])
-
-    # student = fields.One2many(comodel_name='sis.programme', readonly=True)
-
-    # students = fields.Many2many('sis.students')

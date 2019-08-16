@@ -3,6 +3,7 @@ from odoo import models, fields
 
 class Course(models.Model):
     """Model used to create courses"""
+
     _name = 'sis.course'
     _description = 'course model'
     _rec_name = 'course_name'
@@ -12,6 +13,4 @@ class Course(models.Model):
     credits = fields.Integer(string='Credits')
     year = fields.Integer(string='Year')
     student_id = fields.Char(string='student id')
-    # students = fields.
-
     department = fields.Char(string="Department")
