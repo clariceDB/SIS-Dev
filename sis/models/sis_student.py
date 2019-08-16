@@ -5,15 +5,6 @@ import random
 
 class Student(models.Model):
 
-    # _inherit = 'sis_student'
-
-    @api.depends('name', 'surname')
-    def _make_unique(self):
-        r = random.randint(1, 101)*100
-        unique = self.name+self.surname+str(r)
-        print(unique)
-        return unique
-
     _name = 'sis.student'
     _description = 'student model'
 
@@ -22,7 +13,7 @@ class Student(models.Model):
     surname = fields.Char(string='Surname', required=True)
 
     state = fields.Boolean(string='Accepted', default=False)
-    unique = fields.Char( string='Student Number',readonly=True)
+    unique = fields.Char(string='Student Number')
 
     dob = fields.Date('Date of Birth')
 

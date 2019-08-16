@@ -15,10 +15,6 @@
                     <button name="send_accept_mail" string="Send Email" class="oe_highlight" type="object"
                             attrs="{'invisible':['|',('status','=','pending'), ('status','=','declined')]}"
                             confirm="Are you sure you want to send email to applicant?"/>
-
-                    <button name="send_decline_mail" string="Send Decline Email" class="oe_highlight" type="object"
-                            attrs="{'invisible':['|',('status','=', 'pending'), ('status','=','accepted')]}"
-                            confirm="Are you sure you want to send email to applicant?"/>
                 </header>
                 <sheet>
                     <group>

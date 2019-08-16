@@ -1,6 +1,6 @@
 from odoo import models, fields, api
-from datetime import date
 import random
+import math
 from datetime import date
 
 
@@ -8,14 +8,22 @@ class Application(models.Model):
     _name = 'sis.application'
     _description = 'application model'
 
-    print("Hey FRANDZ")
-    
-    def _make_unique(self):
-        print('##########################')
-        r = random.randint(1, 101)
-        unique = self.name + self.surname + str(r)
-        print(unique)
-        return unique
+    # Student-t random number generator
+    def student_t(self, nu):  # nu equals number of degrees of freedom
+        x = random.gauss(0.0, 1.0)
+        y = 2.0 * random.gammavariate(0.5 * nu, 2.0)
+        z = x / (math.sqrt(y / nu))
+        w = round(abs(z * 1000000))
+        return w
+
+    # Takes first and last name
+    def make_random(self):
+        for rec in self:
+            one = rec.name[0:2]
+            two = rec.surname[0:2]
+            three = str(rec.student_t(5))
+            uniq = one + two + three
+            rec.unique = uniq[0:9]
 
     name = fields.Char(string='Name', required=True)
     surname = fields.Char(string='Surname', required=True)
@@ -29,7 +37,7 @@ class Application(models.Model):
     password = fields.Char(string='Password', required=True)
     current_year = date.today().year
     programme = fields.Many2one('sis.programme', required=True)
-    unique = fields.Char(compute=_make_unique, String = 'unique')
+    unique = fields.Char(compute=make_random, string='Student Number')
     transcript = fields.Binary(string='Transcript')
     address = fields.Char(string='Address')
     phone = fields.Char(string='Phone')
@@ -69,8 +77,7 @@ class Application(models.Model):
             'phone': self.phone,
             'email': self.email,
             'highest_qualification': self.highest_qualification,
-            'school': self.school
-
+            'school': self.school,
         })
 
         res = self.env["res.users"].create({'name': self.name,
@@ -86,42 +93,10 @@ class Application(models.Model):
         for rec in self:
             rec.write({'status': 'declined'})
 
-    @ api.multi
-    def enroll_student(self):
-        student_object = self.env['sis.student'].create({
-            'name': self.name,
-            'surname': self.surname,
-            'dob': self.dob,
-            'unique': self.unique,
-            'id': self.id,
-            'password': self.password,
-            'programme': self.programme,
-            'current_year': self.current_year,
-            'transcript': self.transcript,
-            'address': self.address,
-            'phone': self.phone,
-            'email': self.email,
-            'highest_qualification': self.highest_qualification,
-            'school': self.school
-        })
-        res = self.env["res.users"].create({'name': self.name,
-                                            'email': self.email,
-                                            'login': self.email,
-                                            'new_password': self.password})
-
-        print(student_object.programme.courses[0].department.department)
-        for i in range(0, len(student_object.programme.courses)):
-            student_course = student_object.programme.courses[i].name
-            course_department = student_object.programme.courses[i].department
-            print("---->", student_course, "*", course_department)
-
-        student_group = self.env.ref('sis.student_group')
-        res.groups_id = student_group
 
     @api.one
     def send_accept_mail(self):
-        message_body = "<h1>You are a TWAT</h1>>"
-
+        message_body = "Congratulations!"
         template_obj = self.env['mail.mail']
         template_data = {
             'subject': self.name,
@@ -135,35 +110,3 @@ class Application(models.Model):
             rec.write({'email_status': 'sent'})
 
 
-    @api.one
-    def send_decline_mail(self):
-        message_body = "<h1>You are a TWAT</h1>>"
-
-        template_obj = self.env['mail.mail']
-        template_data = {
-            'subject': self.name,
-            'body_html': message_body,
-            'email_from': 'info.capewinelandscollege@gmail.com',
-            'email_to': self.email
-        }
-        template_id = template_obj.create(template_data)
-        template_obj.send(template_id)
-        for rec in self:
-            rec.write({'status': 'declined'})
-
-        message_body = "<h1>You are a TWAT</h1>>"
-
-        template_obj = self.env['mail.mail']
-        template_data = {
-            'subject': self.name,
-            'body_html': message_body,
-            'email_from': 'info.capewinelandscollege@gmail.com',
-            'email_to': self.email
-        }
-        template_id = template_obj.create(template_data)
-        template_obj.send(template_id)
-
-    @api.multi
-    def button_declined(self):
-        for rec in self:
-            rec.write({'status': 'declined'})
