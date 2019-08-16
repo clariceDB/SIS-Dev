@@ -23,6 +23,7 @@
 
                     <group>
                         <h3>Academic Information</h3>
+                        <field name="unique"/>
                         <field name="programme_name"/>
                         <field name="id"/>
                         <field name="current_year"/>
@@ -34,7 +35,7 @@
     </record>
 <!--Tree view of student information-->
     <record id="view_tree_student" model="ir.ui.view">
-        <field name="name">SStudent List View</field>
+        <field name="name">Student List View</field>
         <field name="model">sis.student</field>
         <field name="arch" type="xml">
             <tree>

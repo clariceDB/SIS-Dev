@@ -7,13 +7,6 @@ class Student(models.Model):
     """Model used to define the attributes relating to a student user in the college"""
     # _inherit = 'sis_student'
 
-    @api.depends('name', 'surname')
-    def _make_unique(self):
-        """This method is used to generate a unique identifier for students"""
-        r = random.randint(1, 101)*100
-        unique = self.name+self.surname+str(r)
-        return unique
-
     @api.depends('programme_name')
     def _get_programme(self):
         """This method is used to fetch the programme record matching a given char"""
