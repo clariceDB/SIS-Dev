@@ -2,6 +2,7 @@ from odoo import models, fields
 
 
 class Course(models.Model):
+    """Model used to create courses"""
     _name = 'sis.course'
     _description = 'course model'
     _rec_name = 'name'

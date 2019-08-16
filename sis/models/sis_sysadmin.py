@@ -4,11 +4,13 @@ from . import globals
 
 
 class SysAdmin(models.Model):
+    """The system admin model is used to create the system user and define methods accessible by the user"""
     _name = 'sis.sysadmin'
     _description = 'System admin model'
 
     @api.multi
     def _get_year(self):
+        """Return the current year"""
         current_year = globals.Globals.get_year()
         return current_year
 
@@ -22,6 +24,7 @@ class SysAdmin(models.Model):
     @api.depends('current_year')
     @api.multi
     def rollover_year(self):
+        """This method changes the year from one year to the next. It rolls students over to the next academic year."""
         # data = {d['id']: d['current_year']
         #         for d in self.read(['current_year'])}
         current_year_int = int(self.current_year)
@@ -38,6 +41,7 @@ class SysAdmin(models.Model):
 
     @api.multi
     def make_sysadmin(self):
+        """Create the system administrator user"""
         # MAKE USER
         res = self.env['res.users'].create({'name': self.name,
                                             'email': self.email,

@@ -2,6 +2,7 @@ from odoo import models, fields
 
 
 class Programme(models.Model):
+    """The programme model is used to define the different programmes that will be created and their attributes"""
     _name = 'sis.programme'
     _description = 'programme model'
 

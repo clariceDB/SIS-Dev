@@ -1,10 +1,8 @@
 from odoo import models, fields, api
 
-from . import globals
-
 
 class Lecturer(models.Model):
-
+    """The lecturer model is used to create lecturer uses and store their information"""
     _name = 'sis.lecturer'
     _description = 'lecturer model'
 
@@ -15,8 +13,6 @@ class Lecturer(models.Model):
     password = fields.Char('Password', required=True)
     level = fields.Char(string='Level')
     department = fields.Many2one('sis.department')
-
-    test = fields.Char(default=globals.Globals.get_year('a'), string='year', readonly=True)
 
     @api.multi
     def make_lec(self):

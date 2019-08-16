@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <odoo>
+    <!--View student user information-->
     <record id="view_form_student" model="ir.ui.view">
         <field name="name">Student Form View</field>
         <field name="model">sis.student</field>
@@ -31,7 +32,7 @@
             </form>
         </field>
     </record>
-
+<!--Tree view of student information-->
     <record id="view_tree_student" model="ir.ui.view">
         <field name="name">SStudent List View</field>
         <field name="model">sis.student</field>
